@@ -6,30 +6,51 @@
 	</head>
 
 	<body>
-		<div class="Connexion">
-			<h1>Connexion</h1>
-		<form>
-		<div>
-		<label for="name">E-mail-pseudo</label>
-		<input type="text" id="nom" placeholder="" required>
-		</div> <br>
-		<div>
-		<label for="password">Mot de passe</label>
-		<input type="password" id="password" placeholder="" required>
-		</div> <br>
-		<div class="container">
+		<div class="logo"><img src="../images/InstaHess.png" alt="logo"></div>
+		<div class="container" id="container">
+			<div class="form-container sign-up-container">
+				<form action="#">
+					<h1>Creez votre compte</h1>
+					<span>Seulement si vous n'avez pas de compte</span>
+					<input type="text" placeholder="Name" />
+					<input type="email" placeholder="Email" />
+					<input type="password" placeholder="Password" />
+					<button>S'inscrire</button>
+				</form>
+			</div>
+			<div class="form-container sign-in-container">
+				<form action="#">
+					<h1>Connexion</h1>
+					<span>Si vous avez deja un compte</span>
+					<input type="email" placeholder="Email" />
+					<input type="password" placeholder="Password" />
+					<a href="#">Mot de passe oublié?</a>
+					<button>Connexion</button>
+				</form>
+			</div>
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1>De retour parmis nous ?</h1>
+						<p>Vous pouvez vous reconnectez a votre compte juste ici</p>
+						<button class="ghost" id="signIn">Connexion</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h1>Oh une nouvelle tête !</h1>
+						<p>Tu n'as pas de compte ? Inscris toi et rejoint tes amis sur InstaHess</p>
+						<button class="ghost" id="signUp">S'inscrire</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<p>
+				Creer par Theo/ Richard/ Tahar et Killian
+				- Projet InstaHess BUT Informatique 2023
+			</p>
+		</footer>
 
-  <a href="#" class="button">
-    <div class="button__line"></div>
-    <div class="button__line"></div>
-    <span class="button__text">CONNEXION</span>
-    <div class="button__drow1"></div>
-    <div class="button__drow2"></div>
-  </a>
-
-</div>
-		<p>Vous n'avez pas encore de compte ? <a href="#">S'inscrire</a> </p>
-		</form>
-	</div>
+		<script src="../js/connexion.js"></script>
 	</body>
 </html>
