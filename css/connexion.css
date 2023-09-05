@@ -47,8 +47,9 @@ a {
 	margin: 15px 0;
 }
 
-button {
+button, input[type="submit"] {
     padding: 12px;
+    width: auto;
     text-align: center;
     cursor: pointer;
     text-transform: uppercase;
@@ -65,15 +66,15 @@ button {
     );
 }
 
-button:hover{
+button:hover, input[type="submit"]:hover {
     background-position: right;
 }
 
-button:active {
+button:active, input[type="submit"]:active {
 	transform: scale(0.95);
 }
 
-button:focus {
+button:focus, input[type="submit"]:focus {
 	outline: none;
 }
 
