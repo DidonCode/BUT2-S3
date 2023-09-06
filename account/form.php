@@ -30,7 +30,7 @@
 			}
 
 		}else{
-			$signinError = "Désolé cette email est deja prise !";
+			$signinError = "Désolé cet email est deja pris !";
 		}
 	}
 
@@ -84,9 +84,9 @@
 				<form method="POST">
 					<h1>Creez votre compte</h1>
 					<span>Seulement si vous n'avez pas de compte</span>
-					<input type="email" name="email" placeholder="Email" />
-					<input type="text" name="pseudo" placeholder="Nom d'utilisateur" />
-					<input type="password" name="password" placeholder="Password" />
+					<input type="email" name="email" placeholder="Email" required />
+					<input type="text" name="pseudo" placeholder="Nom d'utilisateur" required />
+					<input type="password" name="password" placeholder="Password" required />
 					<input type="submit" name="signin" value="S'inscrire"></input>
 					<?php
 						if(isset($signinError)){
@@ -99,8 +99,8 @@
 				<form method="POST">
 					<h1>Connexion</h1>
 					<span>Si vous avez déjà un compte</span>
-					<input type="text" name="email" placeholder="Email" />
-					<input type="password" name="password" placeholder="Password" />
+					<input type="text" name="email" placeholder="Email" required />
+					<input type="password" name="password" placeholder="Password" required />
 					<a href="#">Mot de passe oublié ?</a>
 					<input type="submit" name="signup" value="Connexion"></input>
 					<?php

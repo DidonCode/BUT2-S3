@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import "../css/colors.css";
 
 * {
 	box-sizing: border-box;
+    user-select: none;
 }
+
 
 .logo{
     margin-bottom:60px;
@@ -10,7 +13,7 @@
 
 .logo-title{
     font-size: 5vw; 
-    background: linear-gradient(90deg, #ffdf2b 0%, #d400ff 100%); 
+    background: linear-gradient(90deg, var(--yellow-logo) 0%, var(--purple-logo) 100%); 
     -webkit-background-clip: text; 
     color: transparent;
 }
@@ -26,7 +29,7 @@
 }
 
 body {
-	background: #f6f5f7;
+	background: var(--background-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -77,9 +80,9 @@ button, input[type="submit"] {
     border: 1px solid #fff;
     background-image: linear-gradient(
         to right,
-        rgba(255, 230, 0, 0.6),
-        rgba(255, 123, 0, 0.4),
-        rgba(195, 0, 255, 0.333)
+        var(--yellow-logo),
+        var(--orange-logo),
+        var(--purple-logo)
     );
 }
 
@@ -192,7 +195,7 @@ input {
 .overlay {
 	background: #ffffff;
 	background: -webkit-linear-gradient(to right, #ffc400, #e46381);
-	background: linear-gradient(to right, #ffdf2b, #e47b02, #d400ff);
+	background: linear-gradient(to right, var(--yellow-logo), var(--orange-logo), var(--purple-logo));
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
