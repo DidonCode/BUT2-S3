@@ -67,15 +67,18 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html style="height: 100%">
 	<head>
 		<title>InstaHess-Connexion</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="../css/connexion.css">
 	</head>
 
-	<body>
-		<div class="logo"><img src="../images/InstaHess.png" alt="logo"></div>
+	<body style="height: 100%;">
+		<div class="background-login"></div>
+		<div class="logo">
+			<h1 class="logo-title">InstaHess</h1>
+		</div>
 		<div class="container" id="container">
 			<div class="form-container sign-up-container">
 				<form method="POST">

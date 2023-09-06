@@ -8,6 +8,23 @@
     margin-bottom:60px;
 }
 
+.logo-title{
+    font-size: 5vw; 
+    background: linear-gradient(90deg, #ffdf2b 0%, #d400ff 100%); 
+    -webkit-background-clip: text; 
+    color: transparent;
+}
+
+.background-login{
+    background-image: url('../images/r.jpg'); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    filter: blur(1px); 
+    position: absolute; 
+    top: 0px; left: 0px; right: 0px; bottom: 0px; 
+    z-index: -1;
+}
+
 body {
 	background: #f6f5f7;
 	display: flex;
