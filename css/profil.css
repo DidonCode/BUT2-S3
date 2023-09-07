@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import "../css/colors.css";
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+}
+
+
+.container {
+    padding: 0 15%;
+}
+
+.bio{
+    display : grid;
+    grid-template-columns: 1fr 2fr;
+    height: 13em;
+    padding: 3em 0 0 5em;
+    border-bottom: 0.5px solid #DBDBDB;
+}
+
+.photo-profil{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    margin-left: 25%;
+}
+
+.photo-profil>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.profil-info{
+    padding-right: 15%;
+}
+
+.profil-info .username{
+    font-size: 1.7em;
+    color: #545454;
+}
+
+.profil-info .follow{
+    background-color: #0095F6;
+    color: #fff;
+    font-size: 1.1em;
+    width: 6em;
+    height: 2em;
+    border: unset;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.text-bio{
+    padding : 15%;
+}
+
+.informations{
+    display: flex;
+    grid-column-start: auto;
+    grid-gap: 75px;
+    font-size: 18px;
+}

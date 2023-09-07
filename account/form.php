@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require("../php/database.php");
+	//require("../php/database.php");
 
 	if(isset($_POST['signin'])){
 		$email = $_POST['email'];
