@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `insta_hess`
 --
-
+CREATE DATABASE IF NOT EXISTS insta_hess DEFAULT CHARACTER SET utf8mb4 ;
+USE insta_hess;
 -- --------------------------------------------------------
 
 --
@@ -34,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `password` varchar(255) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Déchargement des données de la table `account`
@@ -56,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `publisher` int NOT NULL,
   `message` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `follow` (
   `id` int NOT NULL,
   `follower` int NOT NULL,
   `followed` int NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `date` varchar(255) NOT NULL,
   `view` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `date` varchar(255) NOT NULL,
   `like` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
