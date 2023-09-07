@@ -8,7 +8,7 @@
 		<?php
 			include_once('php/side-bar.php');
 		?>
-		<article style="position: absolute; left: 20%; top: 0px;">
+		<article style="">
 			<h1>Page file de post</h1>
 		</article>
 	</body>
