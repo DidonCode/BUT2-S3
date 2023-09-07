@@ -12,8 +12,10 @@
 				include_once("php/side-bar.php");
 			?>
 
-			<div class="container" style="margin: 0 auto;">
-				<h1>Post</h1>
+			<div class="container">
+				<?php
+					include("php/post.php");
+				?>
 			</div>
 		</div>
 	</body>
