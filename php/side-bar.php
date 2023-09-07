@@ -1,12 +1,19 @@
 <style>
-	*{
+	html{
+		height: 100%;
+	}
+
+	body{
+		padding: 0px;
+		margin: 0px;
 		height: 100%;
 	}
 
 	.side-nav-bar{
-		width: 220px;
+		user-select: none;
+		min-width: 320px;
 		height: 100%;
-		padding: 5px;
+		padding: 0px 5px 0px 5px;
 		border: 2px solid black;
 		border-left: none;
 		border-bottom: none;
@@ -14,18 +21,21 @@
 	}
 
 	.side-nav-bar .side-nav-logo{
-		width: 70%;
 		height: 20px;
 		margin-left: 10px;
-		margin-top: 25px;
+		padding-top: 30px;
 		margin-bottom: 50px;
+	}
+
+	.logo-title{
+		font-size: 2.2em;
+		margin: 0px;
 	}
 
 	.side-nav-button{
 		width: 98%;
 		height: 30px;
-		margin-left: -5px;
-		margin: 10px 0px 10px 0px;
+		margin: 10px 0px 10px 2px;
 		padding: 8px 0px 8px 0px;
 		transition: 0.3s;
 	}
@@ -54,18 +64,24 @@
 		margin: 0;
 	}
 
-	.side-nav-button svg{
+	.side-nav-button svg, .side-nav-profil{
 		display: table-cell;
 		vertical-align: middle;
 		padding: 0px 15px 0px 10px;
 	}
-</style>
 
-<meta charset="utf-8">
+	.side-nav-profil{
+		overflow-clip-margin: content-box;
+		overflow: clip;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+	}
+</style>
 
 <div class="side-nav-bar">
 	<div class="side-nav-logo">
-		<img src="images/instahess.png">
+		<h1 class="logo-title">InstaHess</h1>
 	</div>
 
 	<div class="side-nav-menu">
@@ -114,7 +130,14 @@
 					<line x1="6.545" y1="12.001" x2="17.455" y2="12.001" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill="none" />
 					<line x1="12.003" y1="6.545" x2="12.003" y2="17.455" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill="none" />
 				</svg>
-				<span>Créer</sspanan>
+				<span>Créer</span>
+			</a>
+		</div>
+
+		<div class="side-nav-button">
+			<a href="">
+				<img class="side-nav-profil" src="" />
+				<span>Profil</span>
 			</a>
 		</div>
 

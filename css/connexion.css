@@ -11,13 +11,6 @@
     margin-bottom:60px;
 }
 
-.logo-title{
-    font-size: 5vw; 
-    background: linear-gradient(90deg, var(--yellow-logo) 0%, var(--purple-logo) 100%); 
-    -webkit-background-clip: text; 
-    color: transparent;
-}
-
 .background-login{
     background-image: url('../images/r.jpg'); 
     background-repeat: no-repeat; 
@@ -132,6 +125,7 @@ input {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
+	margin: 0 auto;
 }
 
 .form-container {

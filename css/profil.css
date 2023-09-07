@@ -7,8 +7,15 @@ body {
 }
 
 
+.main-container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
 .container {
-    padding: 0 15%;
+    padding: 0 5%;
+    margin: 0 auto;
 }
 
 .bio{

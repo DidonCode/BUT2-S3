@@ -12,3 +12,12 @@
     --username : #545454;
     --button: #0095F6;
 }
+
+.logo-title{
+    font-size: 5em; 
+    background: linear-gradient(90deg, var(--yellow-logo) 0%, var(--purple-logo) 100%); 
+    -webkit-background-clip: text; 
+    color: transparent;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
