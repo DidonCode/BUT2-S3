@@ -36,7 +36,7 @@
 		width: 98%;
 		height: 30px;
 		margin: 10px 0px 10px 2px;
-		padding: 8px 0px 8px 0px;
+		padding: 12px 0px 5px 0px;
 		transition: 0.3s;
 	}
 
