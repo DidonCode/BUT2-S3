@@ -13,6 +13,12 @@
 			?>
 
 			<div class="container">
+				<div class="story">
+					<div>
+						
+					</div>
+				</div>
+
 				<?php
 					include("php/post.php");
 				?>

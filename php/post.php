@@ -1,8 +1,11 @@
 <style>
 	.post{
+		margin-top: 30px;
 		width: 500px;
-		max-height: 600px;
-		padding: 10px;
+		padding: 20px;
+		border: 1px solid darkgray;
+		border-radius: 1em;
+		box-shadow: 10px 10px 14px 0px rgba(199,199,199,0.75);
 	}
 
 	.post-header{
@@ -13,9 +16,10 @@
 	.post-header-profil{
 		display: table-cell;
 		vertical-align: middle;
+		border-radius: 50%;
 		width: 40px;
 		height: 40px;
-		padding-right: 10px;
+		margin-right: 10px;
 	}
 
 	.post-header-information{
@@ -36,6 +40,18 @@
 	.post-content{
 		width: 100%;
 		padding: 10px 0px 10px 0px;
+	}
+
+	.post-content img{
+		width: 100%;
+		max-height: 100%;
+		border-radius: 0.5em;
+	}
+
+	.post-content video{
+		width: 100%;
+		max-height: 100%;
+		border-radius: 0.5em;
 	}
 
 	.post-footer{
@@ -67,9 +83,7 @@
 
 function printPost($accountName, $accountProfil, $postContent, $postType, $postSpot, $postLike, $postDescription) {
 
-	echo '<div class="post">
-
-
+	echo '
 	<div class="post">
 		<div class="post-header">
 			<img src="' . $accountProfil .'" class="post-header-profil">
@@ -83,7 +97,10 @@ function printPost($accountName, $accountProfil, $postContent, $postType, $postS
 				echo '<img src="' . $postContent . '">';
 			}
 			else if($postType == "video"){
-				echo '<video src="' . $postContent . '">';
+				echo '<video muted autoplay loop>
+					<source src="' . $postContent . '" type="video/mp4"/>
+					</video>
+				';
 			};
 		echo'
 		</div>
@@ -108,6 +125,6 @@ function printPost($accountName, $accountProfil, $postContent, $postType, $postS
 	}
 
  
-	printPost("DidonCode","../images/r.jpg","../images/InstaHess.png","image","Nevers", "265","Premier post !");
-	printPost("Killian","../images/civilisation.jpg","../images/NyanCat.mp4","video","Nevers","12","NyanCat !");
+	printPost("DidonCode","images/r.jpg","images/Minecraft.jpg","image","Nevers", "265","Premier post !");
+	printPost("Killian","images/civilisation.jpg","images/NyanCat.mp4","video","Nevers","12","NyanCat !");
 	?>
