@@ -23,6 +23,10 @@
 					include("php/post.php");
 				?>
 			</div>
+
+			<?php
+				include("php/follower-bar.php");
+			?>
 		</div>
 	</body>
 </html>
