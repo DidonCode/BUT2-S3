@@ -6,6 +6,7 @@
 		border: 2px solid black;
 		border-top: none;
 		border-right: none;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 	}
 
 	.follower-header, .follower-suggestion-header{
@@ -51,7 +52,7 @@
 		</div>
 	</div>
 
-	<h4 style="color: rgb(38, 38, 38);">Suggestions pour vous</h4>
+	<h4 style="color: rgba(0, 0, 0, 0.05);">Suggestions pour vous</h4>
 
 	<div class="follower-content">
 		<?php

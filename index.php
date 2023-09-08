@@ -4,6 +4,7 @@
 		<title></title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/post.css">
 	</head>
 
 	<body>
@@ -30,3 +31,5 @@
 		</div>
 	</body>
 </html>
+
+<script src="js/post.js"></script>
