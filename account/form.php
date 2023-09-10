@@ -1,5 +1,6 @@
 <?php
-	session_start();
+	
+	include_once("../php/session.php");
 	require("../php/database.php");
 
 	if(isset($_POST['signin'])){
@@ -7,24 +8,29 @@
 		$pseudo = $_POST['pseudo'];
 		$password = $_POST['password'];
 
-		$query = $pdo->prepare("SELECT * FROM account WHERE email = ?");
-		$query->execute(array($email));
+		$requete = $pdo->prepare("SELECT * FROM account WHERE email = ?");
+		$requete->execute(array($email));
 
-		$emailCount = $query->rowCount();
+		$emailCount = $requete->rowCount();
 
 		if($emailCount == 0){
 
-			$query = $pdo->prepare("SELECT * FROM account WHERE pseudo = ?");
-			$query->execute(array($pseudo));
+			$requete = $pdo->prepare("SELECT * FROM account WHERE pseudo = ?");
+			$requete->execute(array($pseudo));
 
-			$pseudoCount = $query->rowCount();
+			$pseudoCount = $requete->rowCount();
 
 			if($pseudoCount == 0){
 
-				$query = $pdo->prepare("INSERT INTO account (id, email, password, pseudo) VALUES ('0', ?, ?, ?)");
-				$query->execute(array($email, $password, $pseudo));
+				$requete = $pdo->prepare("INSERT INTO account (id, email, password, pseudo) VALUES ('0', ?, ?, ?)");
+				$requete->execute(array($email, $password, $pseudo));
 
-				header("Location: dashboard.php");
+				$requete = $pdo->prepare("SELECT * FROM account WHERE email = ? AND password = ?");
+				$requete->execute(array($email, $password));
+
+				$userData = $requete->fetchAll();
+
+				create($userData[0]);
 			}else{
 				$signinError = "Désolé ce nom d'utilisateur est deja pris !";
 			}
@@ -39,24 +45,19 @@
 		$password = $_POST['password'];
 
 		if(strpos($email, "@") !== false){
-			$query = $pdo->prepare("SELECT * FROM account WHERE email = ? AND password = ?");
+			$requete = $pdo->prepare("SELECT * FROM account WHERE email = ? AND password = ?");
 		}else{
-			$query = $pdo->prepare("SELECT * FROM account WHERE pseudo = ? AND password = ?");
+			$requete = $pdo->prepare("SELECT * FROM account WHERE pseudo = ? AND password = ?");
 		}
 
-		$query->execute(array($email, $password));
+		$requete->execute(array($email, $password));
 
-		$userCount = $query->rowCount();
+		$userCount = $requete->rowCount();
 
 		if($userCount == 1){
-			$userData = $query->fetchAll();
+			$userData = $requete->fetchAll();
 
-			$_SESSION['id'] = $userData['id'];
-			$_SESSION['email'] = $userData['email'];
-			$_SESSION['password'] = $userData['password'];
-			$_SESSION['pseudo'] = $userData['pseudo'];
-
-			header("Location: dashboard.php");
+			create($userData[0]);
 		}else{
 			if($userCount == 0){
 				$signupError = "Mauvais identifiant ou mot de passe !";
@@ -71,7 +72,7 @@
 	<head>
 		<title>InstaHess-Connexion</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../css/connexion.css">
+		<link rel="stylesheet" href="../css/form.css">
 	</head>
 
 	<body style="height: 100%;">

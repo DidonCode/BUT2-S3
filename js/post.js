@@ -22,19 +22,30 @@ for(let i = 0; i < post.length; i++){
 
 	var commentButton = post[i].getElementsByClassName("post-action-comment")[0];
 	commentButton.onclick = function(){
-		var postPopup = post[i].getElementsByClassName("post-popup")[0];
-		var postPopupBackground = post[i].getElementsByClassName("post-popup-background")[0];
-		var body = document.getElementsByTagName("body")[0];
-		postPopup.style.display = "flex";
-		postPopupBackground.style.display = "block";
-		body.style.overflowY = "hidden";
+		openView(post[i], true);
 	}
 
 	var commentCloseButton = post[i].getElementsByClassName("post-popup-close")[0];
 	commentCloseButton.onclick = function(){
-		var postPopup = post[i].getElementsByClassName("post-popup")[0];
-		var postPopupBackground = post[i].getElementsByClassName("post-popup-background")[0];
-		var body = document.getElementsByTagName("body")[0];
+		openView(post[i], false);
+	}
+
+	// var commentBackground = post[i].getElementsByClassName("post-popup-background")[0];
+	// commentBackground.onclick = function(){
+	// 	openView(post[i], false);
+	// }
+}
+
+function openView(post, open){
+	var body = document.getElementsByTagName("body")[0];
+	var postPopup = post.getElementsByClassName("post-popup")[0];
+	var postPopupBackground = post.getElementsByClassName("post-popup-background")[0];
+	if(open){
+		postPopup.style.display = "flex";
+		postPopupBackground.style.display = "block";
+		body.style.overflowY = "hidden";
+	}
+	else{
 		postPopup.style.display = "none";
 		postPopupBackground.style.display = "none";
 		body.style.overflowY = "visible";

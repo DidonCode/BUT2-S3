@@ -12,7 +12,7 @@
 }
 
 .background-login{
-    background-image: url('../images/r.jpg'); 
+    background-image: url('../images/form-background.jpg'); 
     background-repeat: no-repeat; 
     background-size: cover; 
     filter: blur(1px); 

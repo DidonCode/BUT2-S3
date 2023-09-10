@@ -72,6 +72,9 @@
 	.side-nav-profil{
 		overflow-clip-margin: content-box;
 		overflow: clip;
+		padding: 0px;
+		margin-left: 10px;
+		margin-right: 15px;
 		width: 24px;
 		height: 24px;
 		border-radius: 50%;
@@ -87,6 +90,11 @@
 	}
 </style>
 
+<?php
+	include_once('session.php');
+	check();
+?>
+
 <div class="side-nav-bar">
 	<div style="position: fixed;">
 		<div class="side-nav-logo">
@@ -95,12 +103,21 @@
 
 		<div class="side-nav-menu">
 			<div class="side-nav-button">
-				<a href="">
-					<svg height="24" width="24" viewBox="0 0 24 24">
-						<path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"/>
-					</svg>
-					<span>Accueil</span>
-				</a>
+				<?php
+					if(basename($_SERVER['PHP_SELF']) == "index.php"){
+						echo '<a>';
+					}
+					else {
+						echo '<a href="../index.php">';
+					}
+				
+					echo '
+						<svg height="24" width="24" viewBox="0 0 24 24">
+							<path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"/>
+						</svg>
+						<span>Accueil</span>
+					</a>';
+				?>
 			</div>
 
 			<div class="side-nav-button"  onclick="openSearchSide()">
@@ -144,10 +161,22 @@
 			</div>
 
 			<div class="side-nav-button">
-				<a href="">
-					<img class="side-nav-profil" src="" />
-					<span>Profil</span>
-				</a>
+				<?php
+					$profil = "";
+					if(basename($_SERVER['PHP_SELF']) == "index.php"){
+						echo '<a href="account/profil.php">';
+						$profil = $_SESSION['profil'];
+					}
+					else {
+						echo '<a>';
+						$profil = "../".$_SESSION['profil'];
+					}
+
+					echo'
+						<img class="side-nav-profil" src="'.$profil.'" />
+						<span>Profil</span>
+					</a>';
+				?>
 			</div>
 		</div>
 	</div>

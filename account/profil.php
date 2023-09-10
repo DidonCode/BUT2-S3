@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,7 +23,7 @@
 				</div>
 				<section class="bio">
 					<div class="photo-profil">
-						<img src="../images/profil-instahess.png" alt="photo-profil">
+						<img src="../images/profil/profil-instahess.png" alt="photo-profil">
 					</div>
 					<div class="profil-info">
 						<ul class="informations"><p class="username">Mango_Manga</p>
