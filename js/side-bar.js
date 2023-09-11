@@ -8,29 +8,36 @@ var titleSpan = sideBar.getElementsByTagName("span");
 var logoTitle = sideBar.getElementsByClassName("logo-title")[0];
 var iconTitle = sideBar.getElementsByClassName("icon-title")[0];
 
+var notificationIcon = sideBar.getElementsByClassName("notification-icon");
+var researchIcon = sideBar.getElementsByClassName("research-icon");
+
 subPanel.style.display = "block";
 
 function openSearchSide(){
 	if(subSideBarIsOpen() && notificationPanel.style.display == "block"){
 		renderSearchSide(true);
+		renderNotificationSide(false);
 	}
 	else if(!subSideBarIsOpen()){
 		subSideBarOpen(true);
 		renderSearchSide(true);
 	}else{
 		subSideBarOpen(false);
+		renderSearchSide(false);
 	}
 }
 
 function openNotificationSide(){
 	if(subSideBarIsOpen() && researchPanel.style.display == "block"){
 		renderNotificationSide(true);
+		renderSearchSide(false);
 	}
 	else if(!subSideBarIsOpen()){
 		subSideBarOpen(true);
 		renderNotificationSide(true);
 	}else{
 		subSideBarOpen(false);
+		renderNotificationSide(false);
 	}
 }
 
@@ -38,9 +45,15 @@ function renderSearchSide(open){
 	if(!open){
 		researchPanel.style.display = "none";
 		notificationPanel.style.display = "block";
+
+		researchIcon[1].style.display = "none";
+		researchIcon[0].style.display = "block";
 	}else{
 		researchPanel.style.display = "block";
 		notificationPanel.style.display = "none";
+
+		researchIcon[1].style.display = "block";
+		researchIcon[0].style.display = "none";
 	}	
 }
 
@@ -48,9 +61,15 @@ function renderNotificationSide(open){
 	if(!open){
 		researchPanel.style.display = "block";
 		notificationPanel.style.display = "none";
+
+		notificationIcon[1].style.display = "none";
+		notificationIcon[0].style.display = "block";
 	}else{
 		researchPanel.style.display = "none";
 		notificationPanel.style.display = "block";
+
+		notificationIcon[1].style.display = "block";
+		notificationIcon[0].style.display = "none";
 	}	
 }
 
