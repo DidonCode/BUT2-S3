@@ -1,117 +1,3 @@
-<style>
-	@import "css/colors.css";
-
-	html{
-		height: 100%;
-	}
-
-	body{
-		padding: 0px;
-		margin: 0px;
-		height: 100%;
-	}
-
-	.side-nav-bar{
-		user-select: none;
-		width: 320px;
-		background-color: var(--background-color);
-		padding: 0px 5px 0px 5px;
-		border: 2px solid black;
-		border-left: none;
-		border-bottom: none;
-		border-top: none;
-		transition: 0.8s;
-	}
-
-	.side-nav-bar .side-nav-logo{
-		height: 20px;
-		margin-left: 10px;
-		padding-top: 30px;
-		margin-bottom: 50px;
-	}
-
-	.logo-title{
-		font-size: 2.2em;
-		margin: 0px;
-		width: 100%;
-	}
-
-	.side-nav-button{
-		width: 98%;
-		height: 30px;
-		margin: 10px 0px 10px 2px;
-		padding: 12px 0px 5px 0px;
-	}
-
-	.side-nav-button:hover{
-		background-color: rgba(0, 0, 0, 0.05);
-		border-radius: 0.5em;
-	}
-
-	.side-nav-button a{
-		display: table;
-		margin: auto 0;
-		text-decoration: none;
-		color: black;
-	}
-
-	.side-nav-button span{
-		font-size: 16px;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-		letter-spacing: 0.5px;
-		font-weight: 400;
-		display: table-cell;
-		vertical-align: middle;
-		text-align: left;
-		margin: 0;
-	}
-
-	.side-nav-button svg, .side-nav-profil{
-		display: table-cell;
-		vertical-align: middle;
-		padding: 0px 15px 0px 10px;
-	}
-
-	.side-nav-profil{
-		overflow-clip-margin: content-box;
-		overflow: clip;
-		padding: 0px;
-		margin-left: 10px;
-		margin-right: 15px;
-		width: 24px;
-		height: 24px;
-		border-radius: 50%;
-	}
-
-	.side-nav-sub{
-		width: 380px;
-		height: 100%;
-		background-color: white;
-		position: relative;
-		left: 50px;
-		z-index: -1;
-		box-shadow: 10px 10px 14px 0px rgba(199,199,199,0.75);
-		transition: 0.8s;
-	}
-
-	.icon-title{
-		display: none;
-	}
-
-	@keyframes disappear {
-		0%{ opacity: 1; }
-		50%{ opacity: 0.5; }
-		100%{ opacity: 0; }
-	}
-
-	@keyframes appear {
-		0%{ opacity: 0; }
-		50%{ opacity: 0.5; }
-		100%{ opacity: 1; }
-	}
-
-</style>
-
 <?php
 	include_once('session.php');
 	check();
@@ -120,37 +6,30 @@
 <div class="side-nav-bar">
 	<div style="position: fixed; z-index: 1;">
 		<div class="side-nav-logo">
-			<h1 class="logo-title">InstaHess</h1>
-			<svg width="24px" height="48px" class="icon-title">
-				<defs>
-					<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-						<stop offset="0%" style="stop-color: var(--yellow-logo); stop-opacity: 1" />
-						<stop offset="100%" style="stop-color: var(--purple-logo); stop-opacity: 1" />
-					</linearGradient>
-				</defs>
-				<g xmlns="http://www.w3.org/2000/svg" transform="translate(0.000000,40.000000) scale(0.0500000,-0.0500000)">
-					<path d="M227 567c-14-43-31-67-93-127-86-82-105-119-105-196 0-137 102-232 238-221 125 10 212 113 200 238-3 30-13 71-22 90l-18 34-12-47c-15-62-39-95-81-116-26-12-39-13-52-6-30 19-26 53 14 112 51 77 57 141 20 204-14 24-36 54-49 66l-23 22-17-53z" fill="url(#gradient)" />
-				</g>
-			</svg>
+			<a href="index" style="text-decoration: none;">
+				<h1 class="logo-title">InstaHess</h1>
+				<svg width="30px" height="48px" class="icon-title">
+					<defs>
+						<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+							<stop offset="0%" style="stop-color: var(--yellow-logo); stop-opacity: 1" />
+							<stop offset="100%" style="stop-color: var(--purple-logo); stop-opacity: 1" />
+						</linearGradient>
+					</defs>
+					<g xmlns="http://www.w3.org/2000/svg" transform="translate(3.000000,40.000000) scale(0.0500000,-0.0500000)">
+						<path d="M227 567c-14-43-31-67-93-127-86-82-105-119-105-196 0-137 102-232 238-221 125 10 212 113 200 238-3 30-13 71-22 90l-18 34-12-47c-15-62-39-95-81-116-26-12-39-13-52-6-30 19-26 53 14 112 51 77 57 141 20 204-14 24-36 54-49 66l-23 22-17-53z" fill="url(#gradient)" />
+					</g>
+				</svg>
+			</a>
 		</div>
 
 		<div class="side-nav-menu" style="z-index: 1;">
 			<div class="side-nav-button">
-				<?php
-					if(basename($_SERVER['PHP_SELF']) == "index.php"){
-						echo '<a>';
-					}
-					else {
-						echo '<a href="../index.php">';
-					}
-				
-					echo '
-						<svg height="24" width="24" viewBox="0 0 24 24">
-							<path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"/>
-						</svg>
-						<span>Accueil</span>
-					</a>';
-				?>
+				<a href="index">
+					<svg height="24" width="24" viewBox="0 0 24 24">
+						<path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"/>
+					</svg>
+					<span>Accueil</span>
+				</a>
 			</div>
 
 			<div class="side-nav-button"  onclick="openSearchSide()">
@@ -164,7 +43,7 @@
 			</div>
 
 			<div class="side-nav-button">
-				<a href="">
+				<a href="message">
 					<svg height="24" width="24" viewBox="0 0 24 24">
 						<line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"/>
 						<polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/>
@@ -194,93 +73,28 @@
 			</div>
 
 			<div class="side-nav-button">
-				<?php
-					$profil = "";
-					if(basename($_SERVER['PHP_SELF']) == "index.php"){
-						echo '<a href="account/profil.php">';
-						$profil = $_SESSION['profil'];
-					}
-					else {
-						echo '<a>';
-						$profil = "../".$_SESSION['profil'];
-					}
-
-					echo'
-						<img class="side-nav-profil" src="'.$profil.'" />
-						<span>Profil</span>
-					</a>';
-				?>
+				<a href="profil">
+					<img class="side-nav-profil" src="'.$profil.'" />
+					<span>Profil</span>
+				</a>
 			</div>
 		</div>
 	</div>
 
 	<div class="side-nav-sub" style="width: 0px;">
-		
+		<div class="side-nav-sub-research">
+			<?php
+				include_once("php/side-bar-research.php")
+			?>
+		</div>
+
+		<div class="side-nav-sub-notification">
+			<?php
+				include_once("php/side-bar-notification.php");
+			?>
+		</div>
 	</div>
 </div>
 
-<script>
-	function openSearchSide(){
-		if(!subSideBarIsOpen()){
-			subSideBarOpen(true);
-		}else{
-			subSideBarOpen(false);
-		}
-	}
-
-	function openNotificationSide(){
-		if(!subSideBarIsOpen()){
-			subSideBarOpen(true);
-		}else{
-			subSideBarOpen(false);
-		}
-	}
-
-	function subSideBarOpen(open){
-		var subPanel = document.getElementsByClassName("side-nav-sub")[0];
-		var sideBar = document.getElementsByClassName("side-nav-bar")[0];
-		var sideNavButton = sideBar.getElementsByClassName("side-nav-button");
-		var titleSpan = sideBar.getElementsByTagName("span");
-		var logoTitle = sideBar.getElementsByClassName("logo-title")[0];
-		var iconTitle = sideBar.getElementsByClassName("icon-title")[0];
-
-		if(!open){ //Close
-			subPanel.style.width = "0px";
-			for(var i = 0; i < titleSpan.length; i++){
-				titleSpan[i].style.display = "";
-				sideNavButton[i].style.width = "";
-			}
-			sideBar.style.width = "";
-			iconTitle.style.animation = "disappear 0.4s linear";
-			setTimeout(() => {
-				iconTitle.style.display = "none";
-				logoTitle.style.display = "block";
-				logoTitle.style.animation = "appear 0.4s linear";
-			}, "380");
-		
-		}
-		else{ //Open
-			subPanel.style.width = "";
-			for(var i = 0; i < titleSpan.length; i++){
-				titleSpan[i].style.display = "none";
-				sideNavButton[i].style.width = "45px";
-			}
-			sideBar.style.width = "45px";
-			logoTitle.style.animation = "disappear 0.4s linear";
-			setTimeout(() => {
-				logoTitle.style.display = "none";
-				iconTitle.style.display = "block";
-				iconTitle.style.animation = "appear 0.4s linear";
-			}, "380");
-		}
-	}
-
-	function subSideBarIsOpen(){
-		var subPanel = document.getElementsByClassName("side-nav-sub")[0];
-		if(subPanel.style.width == "0px"){
-			return false;
-		}else{
-			return true;
-		}
-	}
-</script>
+<link rel="stylesheet" type="text/css" href="css/side-bar.css">
+<script src="js/side-bar.js"></script>

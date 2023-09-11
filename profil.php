@@ -7,14 +7,13 @@
 	<head>
 		<title></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../css/profil.css">
-		<link rel="stylesheet" href="../css/colors.css">
+		<link rel="stylesheet" href="css/profil.css">
 	</head>
 
 	<body>
 		<div class="main-container">
 			<?php 
-				include_once("../php/side-bar.php");
+				include_once("php/side-bar.php");
 			?>
 
 			<div class="container">
@@ -23,7 +22,7 @@
 				</div>
 				<section class="bio">
 					<div class="photo-profil">
-						<img src="../images/profil/profil-instahess.png" alt="photo-profil">
+						<img src="images/profil/profil-instahess.png" alt="photo-profil">
 					</div>
 					<div class="profil-info">
 						<ul class="informations"><p class="username">Mango_Manga</p>

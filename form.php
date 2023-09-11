@@ -1,7 +1,7 @@
 <?php
 	
-	include_once("../php/session.php");
-	require("../php/database.php");
+	include_once("php/session.php");
+	require("php/database.php");
 
 	if(isset($_POST['signin'])){
 		$email = $_POST['email'];
@@ -72,7 +72,7 @@
 	<head>
 		<title>InstaHess-Connexion</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../css/form.css">
+		<link rel="stylesheet" href="css/form.css">
 	</head>
 
 	<body style="height: 100%;">

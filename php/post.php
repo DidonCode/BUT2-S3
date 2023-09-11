@@ -1,7 +1,7 @@
 <?php
 
 	require('php/database.php');
-	include_once('php/fonction.php');
+	include_once('php/function.php');
 
 	if(count(array_keys($_POST)) == 1){
 		$postId = 0;
@@ -147,7 +147,9 @@
 					</button>
 				</div>
 			</div>
-		</div>';
+		</div>
+
+		<link rel="stylesheet" type="text/css" href="css/post.css">';
 	}
 
 	$requete = $pdo->prepare("SELECT * FROM post");
