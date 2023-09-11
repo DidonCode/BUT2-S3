@@ -43,16 +43,20 @@
 	}
 </style>
 
+<?php
+	include_once('session.php');
+?>
+
 <div class="follower-bar">
 	<div class="follower-header">
-		<img src="" class="follower-header-profil">
+		<?php echo '<img src="'.$_SESSION['profil'].'" class="follower-header-profil">' ?>
 		<div class="follower-header-information">
-			<p class="follower-publisher">rugvyenfrance</p>
-			<p class="follower-fullName">Rugby France</p>
+			<p class="follower-publisher"><?php echo $_SESSION['pseudo']; ?></p>
+			<p class="follower-fullName"><?php echo $_SESSION['fullName']; ?></p>
 		</div>
 	</div>
 
-	<h4 style="color: rgba(0, 0, 0, 0.05);">Suggestions pour vous</h4>
+	<h4 style="color: rgb(115, 115, 115); font-size: 14px;">Suggestions pour vous</h4>
 
 	<div class="follower-content">
 		<?php

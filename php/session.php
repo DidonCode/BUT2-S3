@@ -6,12 +6,14 @@
 		$_SESSION['email'] = $userData['email'];
 		$_SESSION['password'] = $userData['password'];
 		$_SESSION['pseudo'] = $userData['pseudo'];
+		$_SESSION['fullName'] = $userData['fullName'];
 		$_SESSION['grade'] = $userData['grade'];
 		$_SESSION['profil'] = $userData['profil'];
 		header("Location: ../account/profil.php");
 	}
 
 	function destroy(){
+		session_unset();
 		session_destroy();
 		header("Location: ../account/form.php");
 	}

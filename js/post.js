@@ -28,6 +28,13 @@ for(let i = 0; i < post.length; i++){
 	var commentCloseButton = post[i].getElementsByClassName("post-popup-close")[0];
 	commentCloseButton.onclick = function(){
 		openView(post[i], false);
+		if(post[i].getAttribute('id') == "open"){
+			post[i].setAttribute('id', '');
+		}
+	}
+
+	if(post[i].getAttribute('id') === "open"){
+		openView(post[i], true);
 	}
 
 	// var commentBackground = post[i].getElementsByClassName("post-popup-background")[0];
@@ -35,6 +42,28 @@ for(let i = 0; i < post.length; i++){
 	// 	openView(post[i], false);
 	// }
 }
+
+window.addEventListener('beforeunload', function (e) {
+	var xhr = new XMLHttpRequest();
+	var post = document.getElementsByClassName("post");
+	var likes = [];
+	for(let i = 0; i < post.length; i++){
+		var likeButton = post[i].getElementsByClassName("post-action-like")[0];
+		var iconButton = likeButton.getElementsByClassName("post-like-style");
+		var postId = post[i].getAttribute('name');
+
+		if(iconButton[0].style.display == "none"){
+			likes.push([postId, 1]);
+		}else{
+			likes.push([postId, 0]);
+		}
+	}
+
+	sessionStorage.setItem('likes', likes);
+
+	xhr.open('POST', 'traitement_depart.php', false);
+	xhr.send();
+});
 
 function openView(post, open){
 	var body = document.getElementsByTagName("body")[0];
@@ -51,3 +80,10 @@ function openView(post, open){
 		body.style.overflowY = "visible";
 	}
 }
+
+
+if(window.history.replaceState){
+	window.history.replaceState(null, null, window.location.href);
+}
+
+console.log(sessionStorage.getItem('likes'));

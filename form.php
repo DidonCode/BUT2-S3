@@ -6,6 +6,7 @@
 	if(isset($_POST['signin'])){
 		$email = $_POST['email'];
 		$pseudo = $_POST['pseudo'];
+		$fullName = $_POST['fullName'];
 		$password = $_POST['password'];
 
 		$requete = $pdo->prepare("SELECT * FROM account WHERE email = ?");
@@ -22,8 +23,8 @@
 
 			if($pseudoCount == 0){
 
-				$requete = $pdo->prepare("INSERT INTO account (id, email, password, pseudo) VALUES ('0', ?, ?, ?)");
-				$requete->execute(array($email, $password, $pseudo));
+				$requete = $pdo->prepare("INSERT INTO account (id, email, password, pseudo, fullName, grade, profil) VALUES ('0', ?, ?, ?, ?; '0', 'images/profil/profil-instahess.png')");
+				$requete->execute(array($email, $password, $pseudo, $fullName));
 
 				$requete = $pdo->prepare("SELECT * FROM account WHERE email = ? AND password = ?");
 				$requete->execute(array($email, $password));
@@ -87,6 +88,7 @@
 					<span>Seulement si vous n'avez pas de compte</span>
 					<input type="email" name="email" placeholder="Email" required />
 					<input type="text" name="pseudo" placeholder="Nom d'utilisateur" required />
+					<input type="text" name="fullName" placeholder="Nom" required />
 					<input type="password" name="password" placeholder="Password" required />
 					<input type="submit" name="signin" value="S'inscrire"></input>
 					<?php
