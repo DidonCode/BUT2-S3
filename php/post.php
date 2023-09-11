@@ -157,7 +157,8 @@
 			</div>
 		</div>
 
-		<link rel="stylesheet" type="text/css" href="css/post.css">';
+		<link rel="stylesheet" type="text/css" href="css/post.css">
+		<script src="js/post.js"></script>';
 	}
 
 	$requete = $pdo->prepare("SELECT * FROM post");

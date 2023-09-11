@@ -9,6 +9,16 @@
     margin-bottom:60px;
 }
 
+.logo-title{
+	font-size: 5em; 
+	background: linear-gradient(90deg, var(--yellow-logo) 0%, var(--purple-logo) 100%); 
+	-webkit-background-clip: text; 
+	color: transparent;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+}
+
 .background-login{
     background-image: url('../images/form-background.jpg'); 
     background-repeat: no-repeat; 

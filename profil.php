@@ -8,6 +8,7 @@
 		<title></title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/profil.css">
+		<link rel="stylesheet" type="text/css" href="css/side-bar.css">
 	</head>
 
 	<body>
@@ -44,3 +45,5 @@
 		<script src="https://kit.fontawesome.com/bd843d384a.js" crossorigin="anonymous"></script>
 	</body>
 </html>
+
+<script src="js/side-bar.js"></script>

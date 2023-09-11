@@ -4,7 +4,7 @@
 ?>
 
 <div class="side-nav-bar">
-	<div style="position: fixed; z-index: 1;">
+	<div class="side-nav-bar-fixed">
 		<div class="side-nav-logo">
 			<a href="index" style="text-decoration: none;">
 				<h1 class="logo-title">InstaHess</h1>
@@ -22,7 +22,7 @@
 			</a>
 		</div>
 
-		<div class="side-nav-menu" style="z-index: 1;">
+		<div class="side-nav-menu">
 			<div class="side-nav-button">
 				<a href="index">
 					<svg height="24" width="24" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@
 
 			<div class="side-nav-button">
 				<a href="profil">
-					<img class="side-nav-profil" src="'.$profil.'" />
+					<?php echo '<img class="side-nav-profil" src="'.$_SESSION['profil'].'" />'; ?>
 					<span>Profil</span>
 				</a>
 			</div>
@@ -95,6 +95,3 @@
 		</div>
 	</div>
 </div>
-
-<link rel="stylesheet" type="text/css" href="css/side-bar.css">
-<script src="js/side-bar.js"></script>

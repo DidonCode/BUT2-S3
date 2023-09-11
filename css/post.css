@@ -169,6 +169,7 @@
 
 .post-popup-comment-container{
 	height: 85%;
+	overflow-y: scroll;
 }
 
 .post-popup-comment-input{

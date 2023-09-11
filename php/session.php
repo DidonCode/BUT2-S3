@@ -9,13 +9,13 @@
 		$_SESSION['fullName'] = $userData['fullName'];
 		$_SESSION['grade'] = $userData['grade'];
 		$_SESSION['profil'] = $userData['profil'];
-		header("Location: ../account/profil.php");
+		header("Location: profil.php");
 	}
 
 	function destroy(){
 		session_unset();
 		session_destroy();
-		header("Location: ../account/form.php");
+		header("Location: form.php");
 	}
 
 	function valid(){
