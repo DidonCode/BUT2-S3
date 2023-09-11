@@ -1,4 +1,6 @@
 <style>
+	@import "css/colors.css";
+
 	html{
 		height: 100%;
 	}
@@ -12,12 +14,13 @@
 	.side-nav-bar{
 		user-select: none;
 		width: 320px;
+		background-color: var(--background-color);
 		padding: 0px 5px 0px 5px;
 		border: 2px solid black;
 		border-left: none;
 		border-bottom: none;
 		border-top: none;
-		transition: 0.3s;
+		transition: 0.8s;
 	}
 
 	.side-nav-bar .side-nav-logo{
@@ -83,11 +86,30 @@
 	.side-nav-sub{
 		width: 380px;
 		height: 100%;
+		background-color: white;
 		position: relative;
 		left: 50px;
+		z-index: -1;
 		box-shadow: 10px 10px 14px 0px rgba(199,199,199,0.75);
-		transition: 0.3s;
+		transition: 0.8s;
 	}
+
+	.icon-title{
+		display: none;
+	}
+
+	@keyframes disappear {
+		0%{ opacity: 1; }
+		50%{ opacity: 0.5; }
+		100%{ opacity: 0; }
+	}
+
+	@keyframes appear {
+		0%{ opacity: 0; }
+		50%{ opacity: 0.5; }
+		100%{ opacity: 1; }
+	}
+
 </style>
 
 <?php
@@ -96,12 +118,23 @@
 ?>
 
 <div class="side-nav-bar">
-	<div style="position: fixed;">
+	<div style="position: fixed; z-index: 1;">
 		<div class="side-nav-logo">
 			<h1 class="logo-title">InstaHess</h1>
+			<svg width="24px" height="48px" class="icon-title">
+				<defs>
+					<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+						<stop offset="0%" style="stop-color: var(--yellow-logo); stop-opacity: 1" />
+						<stop offset="100%" style="stop-color: var(--purple-logo); stop-opacity: 1" />
+					</linearGradient>
+				</defs>
+				<g xmlns="http://www.w3.org/2000/svg" transform="translate(0.000000,40.000000) scale(0.0500000,-0.0500000)">
+					<path d="M227 567c-14-43-31-67-93-127-86-82-105-119-105-196 0-137 102-232 238-221 125 10 212 113 200 238-3 30-13 71-22 90l-18 34-12-47c-15-62-39-95-81-116-26-12-39-13-52-6-30 19-26 53 14 112 51 77 57 141 20 204-14 24-36 54-49 66l-23 22-17-53z" fill="url(#gradient)" />
+				</g>
+			</svg>
 		</div>
 
-		<div class="side-nav-menu">
+		<div class="side-nav-menu" style="z-index: 1;">
 			<div class="side-nav-button">
 				<?php
 					if(basename($_SERVER['PHP_SELF']) == "index.php"){
@@ -208,6 +241,8 @@
 		var sideBar = document.getElementsByClassName("side-nav-bar")[0];
 		var sideNavButton = sideBar.getElementsByClassName("side-nav-button");
 		var titleSpan = sideBar.getElementsByTagName("span");
+		var logoTitle = sideBar.getElementsByClassName("logo-title")[0];
+		var iconTitle = sideBar.getElementsByClassName("icon-title")[0];
 
 		if(!open){ //Close
 			subPanel.style.width = "0px";
@@ -216,6 +251,13 @@
 				sideNavButton[i].style.width = "";
 			}
 			sideBar.style.width = "";
+			iconTitle.style.animation = "disappear 0.4s linear";
+			setTimeout(() => {
+				iconTitle.style.display = "none";
+				logoTitle.style.display = "block";
+				logoTitle.style.animation = "appear 0.4s linear";
+			}, "380");
+		
 		}
 		else{ //Open
 			subPanel.style.width = "";
@@ -224,6 +266,12 @@
 				sideNavButton[i].style.width = "45px";
 			}
 			sideBar.style.width = "45px";
+			logoTitle.style.animation = "disappear 0.4s linear";
+			setTimeout(() => {
+				logoTitle.style.display = "none";
+				iconTitle.style.display = "block";
+				iconTitle.style.animation = "appear 0.4s linear";
+			}, "380");
 		}
 	}
 

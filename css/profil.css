@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-@import "../css/colors.css";
+@import "css/colors.css";
 
 body {
     background-color: var(--background-color);
@@ -16,6 +16,7 @@ body {
 .container {
     padding: 0 5%;
     margin: 0 auto;
+    z-index: -2;
 }
 
 .bio{
