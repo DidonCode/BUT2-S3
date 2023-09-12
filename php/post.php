@@ -62,7 +62,7 @@
 				}
 				else if($postType == "video"){
 					echo '<video muted autoplay loop>
-						<source src="' . $postContent . '" type="video/mp4"/>
+							<source src="' . $postContent . '" type="video/mp4"/>
 						</video>
 					';
 				};

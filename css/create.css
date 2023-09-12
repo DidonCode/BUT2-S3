@@ -6,27 +6,52 @@ body{
 
 .main-container{
 	display: flex;
+	justify-content: space-between;
 	min-height: 100%;
 	flex-direction: row;
 }
 
 .container{
-    padding: 0 5%;
     margin: 0 auto;
-    position: relative;
+    user-select: none;
 }
 
-.upload-post, .effect-post, .information-post{
+.container form{
+	width: 600px;
+	max-width: 600px;
+}
+
+.upload-post, .effect-post, .effect-video, .information-post{
 	background-color: white;
-	padding: 10px;
+	padding: 20px;
 	z-index: 1;
 	margin: 20px;
 	border-radius: 1em;
 	box-shadow: 10px 10px 14px 0px rgba(199,199,199,0.75);
 }
 
+.effect-control{
+	width: 100%;
+}
+
 .effect-post{
 	display: none;
+}
+
+.effect-video{
+	display: none;
+}
+
+.effect-video video{
+	width: 100%;
+}
+
+.information-post{
+	display: none;
+}
+
+.effect-preview{
+	width: 100%;
 }
 
 .effect-preview-select{
@@ -34,7 +59,119 @@ body{
 	background-color: transparent;
 }
 
+.effect-preview-menu{
+	display: flex;
+	flex-direction: row;
+}
+
 .effect-preview-select img {
-	width: 80px;
-	height: 80px;
+	max-width: 100%;
+	height: auto;
+}
+
+.post-spot{
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0px 0px 0px;
+	width: calc(100% - 30px);
+}
+
+.post-description{
+	background-color: #eee;
+	border: none;
+	width: calc(100% - 20px);
+	padding: 10px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	height: 400px;
+	resize: none;
+	margin-bottom: 20px;
+}
+
+.post-publish{
+	padding: 12px;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: 0.5s;
+	color: white;
+	border-radius: 10px;
+	background-size: 200%;
+	border: 1px solid #fff;
+	background-image: linear-gradient(
+	to right,
+		var(--yellow-logo),
+		var(--orange-logo),
+		var(--purple-logo)
+	);
+}
+
+@keyframes appear {
+	0%{ opacity: 0; }
+	50%{ opacity: 0.5; }
+	100%{ opacity: 1; }
+}
+
+.information-post .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  margin-right: 15px;
+  margin-top: 8px;
+  height: 34px;
+}
+
+.information-post .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.information-post .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.information-post .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.information-post input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.information-post input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.information-post input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.information-post .slider.round {
+  border-radius: 34px;
+}
+
+.information-post .slider.round:before {
+  border-radius: 50%;
 }
