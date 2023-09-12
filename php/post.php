@@ -27,7 +27,6 @@
 		$postType = $postData['contentType'];
 		$postDescription = $postData['description'];
 		$postSpot = $postData['spot'];
-		$postLike = $postData['like'];
 		$postDate = $postData['date'];
 
 		$requete = $pdo->prepare("SELECT pseudo, profil FROM account WHERE id = ?");
@@ -86,7 +85,7 @@
 						</svg>
 					</button>
 				</div>
-				<p class="post-like"><span class="post-like-counter">' .$postLike . '</span> J\'aime</p>
+				<p class="post-like"><span class="post-like-counter"></span> J\'aime</p>
 				<p class="post-description"><span style="font-weight: 600;">' . $accountName . '</span> ' . $postDescription . '</p>
 			</div>
 

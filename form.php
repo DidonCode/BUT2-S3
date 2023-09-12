@@ -23,7 +23,7 @@
 
 			if($pseudoCount == 0){
 
-				$requete = $pdo->prepare("INSERT INTO account (id, email, password, pseudo, fullName, grade, profil) VALUES ('0', ?, ?, ?, ?; '0', 'images/profil/profil-instahess.png')");
+				$requete = $pdo->prepare("INSERT INTO account (id, email, password, pseudo, fullName, grade, profil) VALUES ('0', ?, ?, ?, ?, '0', 'images/profil/profil-instahess.png')");
 				$requete->execute(array($email, $password, $pseudo, $fullName));
 
 				$requete = $pdo->prepare("SELECT * FROM account WHERE email = ? AND password = ?");
@@ -33,7 +33,7 @@
 
 				create($userData[0]);
 			}else{
-				$signinError = "Désolé ce nom d'utilisateur est deja pris !";
+				$signinError = "Désolé ce nom d'utilisateur est déja pris !";
 			}
 
 		}else{

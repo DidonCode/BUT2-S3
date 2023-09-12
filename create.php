@@ -1,3 +1,55 @@
+<?php
+
+include_once('php/session.php');
+include_once('php/function.php');
+require("php/database.php");
+
+
+
+if(isset($_POST['send'])){
+	$uploaddir = 'images/post/';
+	$uploadFile = $uploaddir . basename($_FILES['post-content']['name']);
+
+	if(isset($_FILES['post-content']) && $_FILES['post-content']['error'] == 0){
+		if($_FILES['post-content']['size'] <= 4000000){
+			$fileInfo = pathinfo($_FILES['post-content']['name']);
+			$extension = $fileInfo['extension'];
+			$allowedExtensions = ['jpg', 'png', 'gif','jpeg','mp4'];
+
+			if($fileInfo['extension'] == 'jpg' || $fileInfo['extension'] == 'png' || $fileInfo['extension'] == 'gif'){
+				$contentTypeFile = "image";
+			}
+			else {
+				$contentTypeFile = "video";
+			}
+
+			if(in_array($extension, $allowedExtensions)){
+				move_uploaded_file($_FILES['post-content']['tmp_name'], $uploadFile );
+			}
+		}
+		var_dump($_FILES['post-content']);
+	}
+
+	$spotPost = $_POST['post-spot'];
+	$contentPost = $uploadFile;
+	$contentTypePost = $contentTypeFile;
+	$descriptionPost = $_POST['post-description'];
+	$statComment = $_POST['enableComment'];
+
+	if($statComment =="on"){
+		$statComment = 1;
+	}
+	else{
+		$statComment = 0;
+	}
+	
+
+	$requete = $pdo->prepare("INSERT INTO post (id, publisher, spot, content, contentType, description, date, enableComment) VALUES ('0', ?, ?, ?, ?, ?, ?, ?)");
+	$requete->execute(array($_SESSION['id'], $spotPost, $contentPost, $contentTypePost, $descriptionPost, getActuallyDate(), $statComment));
+}
+
+?> 
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,7 +66,7 @@
 			?>
 
 			<div class="container">
-				<form method="" enctype="multipart/form-data" style="position: relative; z-index: 1;">
+				<form method="POST" enctype="multipart/form-data" style="position: relative; z-index: 1;">
 					<div class="upload-post">
 						<input type="file" name="post-content" class="post-content" accept="image/png, image/jpg, image/jpeg, image/gif, video/mp4">
 					</div>
@@ -59,7 +111,7 @@
 						<input type="text" name="post-spot" placeholder="Le lieu..." class="post-spot">
 						<div style="display: inline-flex; padding: 20px 0px 20px 0px;">
 							<label class="switch">
-								<input type="checkbox" checked>
+								<input name="enableComment" type="checkbox" checked>
 								<span class="slider round"></span>
 							</label>
 							<p>Activer les commentaires</p>
