@@ -136,6 +136,6 @@
 			</p>
 		</footer>
 
-		<script src="../js/connexion.js"></script>
+		<script src="js/connexion.js"></script>
 	</body>
 </html>

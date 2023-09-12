@@ -91,7 +91,7 @@
 			</div>
 
 			<div class="side-nav-button">
-				<a href="">
+				<a href="create">
 					<?php
 						if(basename($_SERVER['PHP_SELF']) != "create.php"){
 							echo '

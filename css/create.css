@@ -1,0 +1,40 @@
+@import "colors.css";
+
+body{
+	background-color: var(--background-color);
+}
+
+.main-container{
+	display: flex;
+	min-height: 100%;
+	flex-direction: row;
+}
+
+.container{
+    padding: 0 5%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.upload-post, .effect-post, .information-post{
+	background-color: white;
+	padding: 10px;
+	z-index: 1;
+	margin: 20px;
+	border-radius: 1em;
+	box-shadow: 10px 10px 14px 0px rgba(199,199,199,0.75);
+}
+
+.effect-post{
+	display: none;
+}
+
+.effect-preview-select{
+	border: none;
+	background-color: transparent;
+}
+
+.effect-preview-select img {
+	width: 80px;
+	height: 80px;
+}
