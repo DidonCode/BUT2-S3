@@ -12,8 +12,8 @@ body{
 }
 
 .container{
-    margin: 0 auto;
-    user-select: none;
+	margin: 0 auto;
+	user-select: none;
 }
 
 .container form{
@@ -123,7 +123,7 @@ body{
   height: 34px;
 }
 
-.information-post .switch input {
+.information-post .switch input[type="checkbox"] {
   opacity: 0;
   width: 0;
   height: 0;
@@ -154,15 +154,15 @@ body{
   transition: .4s;
 }
 
-.information-post input:checked + .slider {
+.information-post input[type="checkbox"]:checked + .slider {
   background-color: #2196F3;
 }
 
-.information-post input:focus + .slider {
+.information-post input[type="checkbox"]:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
 }
 
-.information-post input:checked + .slider:before {
+.information-post input[type="checkbox"]:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -174,4 +174,37 @@ body{
 
 .information-post .slider.round:before {
   border-radius: 50%;
+}
+
+.effect-control {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 10px;
+	background-color: #ddd;
+	border-radius: 5px;
+}
+
+.effect-control::-webkit-slider-runnable-track {
+	height: 10px;
+	background-color: #3498db;
+	border-radius: 5px;
+}
+
+.effect-control::-webkit-slider-thumb {
+	width: 15px;
+	height: 30px;
+	background-color: #3498db;
+	border-radius: 5px;
+	-webkit-appearance: none;
+	appearance: none;
+	margin-top: -10px;
+}
+
+.effect-control::-webkit-slider-thumb:active {
+	background-color: #2980b9; 
+}
+
+.effect-control::-webkit-slider-thumb:hover {
+	background-color: #2980b9;
 }
