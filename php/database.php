@@ -1,7 +1,7 @@
 <?php
 	$address = "127.0.0.1";
 	$username = "root";
-	$password = "root";
+	$password = "";
 	$database = "insta_hess";
 
 	try {

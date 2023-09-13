@@ -44,7 +44,6 @@ for(let i = 0; i < post.length; i++){
 }
 
 window.addEventListener('beforeunload', function (e) {
-	var xhr = new XMLHttpRequest();
 	var post = document.getElementsByClassName("post");
 	var likes = [];
 	for(let i = 0; i < post.length; i++){
@@ -59,10 +58,9 @@ window.addEventListener('beforeunload', function (e) {
 		}
 	}
 
-	sessionStorage.setItem('likes', likes);
-
-	xhr.open('POST', 'traitement_depart.php', false);
-	xhr.send();
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "php/post_like.php?likes=" + likes.toString(), true);
+	xmlhttp.send();
 });
 
 function openView(post, open){
@@ -85,5 +83,3 @@ function openView(post, open){
 if(window.history.replaceState){
 	window.history.replaceState(null, null, window.location.href);
 }
-
-console.log(sessionStorage.getItem('likes'));
