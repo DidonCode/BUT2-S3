@@ -10,21 +10,30 @@ if(isset($_POST['send'])){
 	$uploaddir = 'images/post/';
 	$uploadFile = $uploaddir . basename($_FILES['post-content']['name']);
 
+
+	if(file_exists('name_file_upload.txt'))
+	    $name = (int) file_get_contents('name_file_upload.txt');
+	else
+    $name = 1;
+
 	if(isset($_FILES['post-content']) && $_FILES['post-content']['error'] == 0){
 		if($_FILES['post-content']['size'] <= 4000000){
 			$fileInfo = pathinfo($_FILES['post-content']['name']);
 			$extension = $fileInfo['extension'];
 			$allowedExtensions = ['jpg', 'png', 'gif','jpeg','mp4'];
-
-			if($fileInfo['extension'] == 'jpg' || $fileInfo['extension'] == 'png' || $fileInfo['extension'] == 'gif'){
+			echo "test3";
+			if($extension == 'jpg' || $extension == 'png' || $extension == 'gif'){
 				$contentTypeFile = "image";
+				echo "test1";
 			}
-			else {
+			else if($extension == "mp4") {
 				$contentTypeFile = "video";
+				echo "test2";
 			}
 
 			if(in_array($extension, $allowedExtensions)){
-				move_uploaded_file($_FILES['post-content']['tmp_name'], $uploadFile );
+				move_uploaded_file($_FILES['post-content']['tmp_name'], $uploaddir . $name.$extension );
+				file_put_contents('name_file_upload.txt', (int) $name+1);
 			}
 		}
 		var_dump($_FILES['post-content']);
