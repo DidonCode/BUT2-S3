@@ -6,7 +6,7 @@
 <div class="side-nav-bar">
 	<div class="side-nav-bar-fixed">
 		<div class="side-nav-logo">
-			<a href="index" style="text-decoration: none;">
+			<a href="index.php" style="text-decoration: none;">
 				<h1 class="logo-title">InstaHess</h1>
 				<svg width="30px" height="48px" class="icon-title">
 					<defs>
@@ -24,7 +24,7 @@
 
 		<div class="side-nav-menu">
 			<div class="side-nav-button">
-				<a href="index">
+				<a href="index.php">
 					<?php
 						if(basename($_SERVER['PHP_SELF']) != "index.php"){
 							echo '
@@ -58,7 +58,7 @@
 			</div>
 
 			<div class="side-nav-button">
-				<a href="message">
+				<a href="message.php">
 					<?php
 						if(basename($_SERVER['PHP_SELF']) != "message.php"){
 							echo '
@@ -91,7 +91,7 @@
 			</div>
 
 			<div class="side-nav-button">
-				<a href="create">
+				<a href="create.php">
 					<?php
 						if(basename($_SERVER['PHP_SELF']) != "create.php"){
 							echo '
@@ -113,7 +113,7 @@
 			</div>
 
 			<div class="side-nav-button">
-				<a href="profil">
+				<a href="profil.php">
 					<?php echo '<img class="side-nav-profil" src="'.$_SESSION['profil'].'" />'; ?>
 					<span>Profil</span>
 				</a>
