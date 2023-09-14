@@ -28,6 +28,7 @@
 		$postDescription = $postData['description'];
 		$postSpot = $postData['spot'];
 		$postDate = $postData['date'];
+		$postCommentEnable = $postData['enableComment'];
 
 		$requete = $pdo->prepare("SELECT COUNT(*) FROM post_like WHERE post = ? AND love = 1");
 		$requete->execute(array($postId));
@@ -49,9 +50,11 @@
 		$accountProfil = $accountData[0]['profil'];
 		$accountName = $accountData[0]['pseudo'];
 
-		$requete = $pdo->prepare("SELECT * FROM post_comment WhERE post = ?");
-		$requete->execute(array($postData['id']));
-		$commentData = $requete->fetchAll();
+		if(isset($postCommentEnable) && $postCommentEnable == 1){
+			$requete = $pdo->prepare("SELECT * FROM post_comment WhERE post = ?");
+			$requete->execute(array($postData['id']));
+			$commentData = $requete->fetchAll();
+		}
 
 		if(isset($_SESSION['postId']) && $_SESSION['postId'] == $postId){
 			echo '<div class="post" id="open" name="'.$postId.'">';
@@ -138,34 +141,40 @@
 							<hr style="border: 0.1px solid rgba(0, 0, 0, 0.05); margin-top: 20px; margin-bottom: 20px;">
 
 							<div class="post-popup-comment-container">';
+							if(isset($postCommentEnable) && $postCommentEnable == 1){
+								for($i = 0; $i < count($commentData); $i++){
+									$requete = $pdo->prepare("SELECT pseudo, profil FROM account WHERE id = ?");
+									$requete->execute(array($commentData[$i]['publisher']));
+									$commentAccountData = $requete->fetchAll();
 
-							for($i = 0; $i < count($commentData); $i++){
-								$requete = $pdo->prepare("SELECT pseudo, profil FROM account WHERE id = ?");
-								$requete->execute(array($commentData[$i]['publisher']));
-								$commentAccountData = $requete->fetchAll();
+									$commentAccountProfil = $commentAccountData[0]['profil'];
+									$commentAccountName = $commentAccountData[0]['pseudo'];
 
-								$commentAccountProfil = $commentAccountData[0]['profil'];
-								$commentAccountName = $commentAccountData[0]['pseudo'];
+									$commentMessage = $commentData[$i]['message'];
+									$commentDate = $commentData[$i]['date'];
 
-								$commentMessage = $commentData[$i]['message'];
-								$commentDate = $commentData[$i]['date'];
+									echo'
+									<div class="post-popup-comment-header">
+										<img src="'.$commentAccountProfil.'" class="post-popup-header-comment-profil">
+										<div class="post-popup-comment-header-information">
+											<p class="post-popup-comment-publisher">'.$commentAccountName.' • '.dateDiffActually($commentDate).'</p>
+											<p class="post-popup-comment-message">'.$commentMessage.'</p>
+										</div>
+									</div>';
+								}
 
 								echo'
-								<div class="post-popup-comment-header">
-									<img src="'.$commentAccountProfil.'" class="post-popup-header-comment-profil">
-									<div class="post-popup-comment-header-information">
-										<p class="post-popup-comment-publisher">'.$commentAccountName.' • '.dateDiffActually($commentDate).'</p>
-										<p class="post-popup-comment-message">'.$commentMessage.'</p>
-									</div>
-								</div>';
+								</div>	
+
+								<form method="POST">
+									<input type="text" class="post-popup-comment-input" placeholder="Ajouter un commentaire..." name="'.$postId.'"> 
+								</form>';
 							}
-
-							echo'
-							</div>
-
-							<form method="POST">
-								<input type="text" class="post-popup-comment-input" placeholder="Ajouter un commentaire..." name="'.$postId.'"> 
-							</form>
+							else{
+								echo '<p class="post-popup-comment-alert">Les commentaires ont été désactiver !</p>';
+								echo '</div>';
+							}
+						echo'
 						</div>
 					</div>
 					<button class="post-popup-close">
@@ -176,10 +185,7 @@
 					</button>
 				</div>
 			</div>
-		</div>
-
-		<link rel="stylesheet" type="text/css" href="css/post.css">
-		<script src="js/post.js"></script>';
+		</div>';
 	}
 
 	$requete = $pdo->prepare("SELECT * FROM post");

@@ -4,6 +4,7 @@
 		<title></title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/post.css">
 		<link rel="stylesheet" type="text/css" href="css/side-bar.css">
 	</head>
 
@@ -33,3 +34,4 @@
 </html>
 
 <script src="js/side-bar.js"></script>
+<script src="js/post.js"></script>

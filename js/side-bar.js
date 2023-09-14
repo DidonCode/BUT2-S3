@@ -3,6 +3,7 @@ var notificationPanel = document.getElementsByClassName("side-nav-sub-notificati
 
 var subPanel = document.getElementsByClassName("side-nav-sub")[0];
 var sideBar = document.getElementsByClassName("side-nav-bar")[0];
+var sideBarFixed = document.getElementsByClassName("side-nav-bar-fixed")[0];
 var sideNavButton = sideBar.getElementsByClassName("side-nav-button");
 var titleSpan = sideBar.getElementsByTagName("span");
 var logoTitle = sideBar.getElementsByClassName("logo-title")[0];
@@ -44,13 +45,13 @@ function openNotificationSide(){
 function renderSearchSide(open){
 	if(!open){
 		researchPanel.style.display = "none";
-		notificationPanel.style.display = "block";
+		//notificationPanel.style.display = "block";
 
 		researchIcon[1].style.display = "none";
 		researchIcon[0].style.display = "block";
 	}else{
 		researchPanel.style.display = "block";
-		notificationPanel.style.display = "none";
+		//notificationPanel.style.display = "none";
 
 		researchIcon[1].style.display = "block";
 		researchIcon[0].style.display = "none";
@@ -59,13 +60,13 @@ function renderSearchSide(open){
 
 function renderNotificationSide(open){
 	if(!open){
-		researchPanel.style.display = "block";
+		//researchPanel.style.display = "block";
 		notificationPanel.style.display = "none";
 
 		notificationIcon[1].style.display = "none";
 		notificationIcon[0].style.display = "block";
 	}else{
-		researchPanel.style.display = "none";
+		//researchPanel.style.display = "none";
 		notificationPanel.style.display = "block";
 
 		notificationIcon[1].style.display = "block";
@@ -88,6 +89,7 @@ function subSideBarOpen(open){
 	subPanel.style.display = "";
 	if(!open){ //Close
 		subPanel.style.width = "0px";
+		sideBarFixed.style.width = "";
 		sideBar.style.marginRight = "";
 		sideBar.style.minWidth = "";
 		sideBar.addEventListener('transitionend', renderMenuButton);
@@ -106,6 +108,7 @@ function subSideBarOpen(open){
 			logoTitle.style.display = "none";
 			iconTitle.style.display = "block";
 			iconTitle.style.animation = "appear 0.4s linear";
+			sideBarFixed.style.width = "50px";
 		}, 380);
 	}
 }

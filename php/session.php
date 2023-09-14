@@ -15,7 +15,7 @@
 	function destroy(){
 		session_unset();
 		session_destroy();
-		header("Location: ../form.php");
+		header("Location: form.php");
 	}
 
 	function valid(){

@@ -169,7 +169,6 @@
 
 .post-popup-comment-container{
 	height: 85%;
-	overflow-y: scroll;
 }
 
 .post-popup-comment-input{
@@ -178,4 +177,14 @@
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: calc(100% - 40px);
+}
+
+.post-popup-comment-alert{
+	font-size: 1.5em;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	color: rgba(38, 38, 38, 0.75);
 }

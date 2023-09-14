@@ -15,11 +15,11 @@
 			$exist = $requete->rowCount();
 			$existingData = $requete->fetchAll();
 
-			if($existingData[0]['love'] == $postLike){
-				continue;
-			}
-
 			if($exist > 0){
+				if($existingData[0]['love'] == $postLike){
+					continue;
+				}
+
 				$requete = $pdo->prepare("UPDATE post_like SET love = ? WHERE post = ? AND account = ?");
 				$requete->execute(array($postLike, $postId, $_SESSION['id']));
 			}
@@ -29,7 +29,7 @@
 			}
 		}
 
-		return true;
+		header("Location: index.php");
 	}
 
 ?>
