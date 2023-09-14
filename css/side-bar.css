@@ -12,11 +12,11 @@ body{
 
 .side-nav-bar{
 	user-select: none;
-	min-width: 320px;
+	min-width: 250px;
 	width: 50px;
 	background-color: var(--background-color);
 	padding: 0px 5px 0px 5px;
-	border: 2px solid black;
+	border: 2px solid grey;
 	border-left: none;
 	border-bottom: none;
 	border-top: none;
@@ -26,14 +26,14 @@ body{
 .side-nav-bar-fixed{
 	position: fixed; 
 	z-index: 1;
-	width: 320px;
+	width: 250px;
 }
 
 .side-nav-bar .side-nav-logo{
 	height: 20px;
 	margin-left: 10px;
 	padding-top: 30px;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
 }
 
 .logo-title{

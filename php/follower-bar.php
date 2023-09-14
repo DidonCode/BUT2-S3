@@ -3,7 +3,7 @@
 		width: 200px;
 		height: 400px;
 		padding: 10px;
-		border: 2px solid black;
+		border: 2px solid grey;
 		border-top: none;
 		border-right: none;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
