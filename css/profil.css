@@ -5,6 +5,10 @@ body {
     margin: 0;
 }
 
+li{
+    list-style-type: none;
+    display: inline-block;
+}
 .main-container{
     display: flex;
     flex-direction: row;
@@ -17,7 +21,44 @@ body {
     z-index: -2;
 }
 
-.bio{
+/*Settings*/
+#settings{
+    margin-top: 100px;
+    padding-right: 300px;
+}
+.context-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu li {
+    padding: 10px;
+}
+
+.context-menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.context-menu a:hover {
+    background-color: #f2f2f2;
+}
+
+/*BIO*/
+
+
+#bio{
     display : grid;
     grid-template-columns: 1fr 2fr;
     height: 13em;
@@ -48,7 +89,9 @@ body {
     color: #545454;
 }
 
-.profil-info .follow{
+.follow-button{
+    margin-top: 100px;
+
     background-color: #0095F6;
     color: #fff;
     font-size: 1.1em;
@@ -57,6 +100,7 @@ body {
     border: unset;
     border-radius: 5px;
     cursor: pointer;
+
 }
 
 .text-bio{
