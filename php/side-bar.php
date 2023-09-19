@@ -1,6 +1,6 @@
 <?php
 	include_once('session.php');
-	check();
+	//check();
 ?>
 
 <div class="side-nav-bar">
