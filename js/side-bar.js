@@ -85,10 +85,16 @@ function renderMenuButton(){
 	logoTitle.style.animation = "appear 0.4s linear";
 }
 
+function zIndexSubPanel(){
+	subPanel.style.zIndex = "1";
+}
+
 function subSideBarOpen(open){
 	subPanel.style.display = "";
 	if(!open){ //Close
 		subPanel.style.width = "0px";
+		subPanel.removeEventListener('transitionend', zIndexSubPanel);
+		subPanel.style.zIndex = "";
 		sideBarFixed.style.width = "";
 		sideBar.style.marginRight = "";
 		sideBar.style.minWidth = "";
@@ -109,6 +115,7 @@ function subSideBarOpen(open){
 			iconTitle.style.display = "block";
 			iconTitle.style.animation = "appear 0.4s linear";
 			sideBarFixed.style.width = "50px";
+			subPanel.addEventListener('transitionend', zIndexSubPanel);
 		}, 380);
 	}
 }
