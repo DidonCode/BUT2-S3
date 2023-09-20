@@ -88,7 +88,7 @@
 
         contextMenu.addEventListener("click", function (event) {
             event.stopPropagation();
-        });
+        }); 
     });
 </script>
 
