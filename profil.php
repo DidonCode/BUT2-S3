@@ -29,7 +29,7 @@
                         <button id="followButton" class="follow-button" onclick="toggleFollow()">Follow</button>
                     </li>
                     <li><span>0</span> Post</li>
-                    <li><span id="followerCount">100K</span> Followers</li>
+                    <li><span id="followerCount">0</span> Followers</li>
                     <li><span>0</span> Suivi</li>
                 </ul>
 				<div class="texte-bio">
@@ -46,10 +46,10 @@
         </div>
         <div id="contextMenu" class="context-menu">
             <ul>
-                <li><a href="#">Modifier le nom</a></li>
-                <li><a href="#">Modifier la bio</a></li>
-                <li><a href="#">Modifier la photo de profil</a></li>
-                <li><a href="#">Changer le mot de passe</a></li>
+                <li><a href="#">Modifier le nom</a></li><br>
+                <li><a href="#">Modifier la bio</a></li><br>
+                <li><a href="#">Modifier la photo de profil</a></li><br>
+                <li><a href="#">Changer le mot de passe</a></li><br>
                 <li><a href="#">Compte bloqué</a></li>
             </ul>
         </div>
