@@ -5,7 +5,6 @@
     
     if(valid()){
 
-    
     $requete = $pdo->prepare("SELECT pseudo FROM account WHERE id =?");
     $requete->execute(array($_SESSION['id']));
 
@@ -116,6 +115,36 @@
 					<p><?php echo $bio; ?></p>
 				</div>
             </div>
+            
+        </div>
+        <div class="AffichagePost">
+
+            <?php
+
+            for($i=0; $i<$postNumber; $i++){
+
+                $postId = $postData[$i]['id'];
+                $postSpot = $postData[$i]['spot'];
+                $postContent = $postData[$i]['content'];
+                $postContentType = $postData[$i]['contentType'];
+                $postDescription = $postData[$i]['description'];
+                $postDate = $postData[$i]['date'];
+                $postEnableComment = $postData[$i]['enableComment'];
+
+           
+                if($postContentType == "image"){
+                    echo '<img src="' . $postContent . '">';
+                }
+
+                else{
+                    echo '<video muted autoplay loop>
+                            <source src="'.$postContent.'" type="video/mp4"/>
+                        </video>';
+                }
+
+            }    
+
+            ?>
         </div>
     </div>
 	<div id="settings">

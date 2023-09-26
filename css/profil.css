@@ -129,3 +129,13 @@ li{
     margin-right: 0px;
     margin-left: 0px;
 }
+
+
+.AffichagePost{
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    width: 150px;
+    height: 150px;
+}
