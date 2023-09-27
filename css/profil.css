@@ -132,10 +132,21 @@ li{
 
 
 .AffichagePost{
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
     display: grid;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
-    width: 150px;
-    height: 150px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
+
+.AffichagePost img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+
