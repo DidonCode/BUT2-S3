@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `fullName` varchar(255) NOT NULL,
   `grade` int NOT NULL DEFAULT '0',
   `profil` varchar(255) NOT NULL,
+  `banned` tinyint(1) NOT NULL DEFAULT '0', -- 0 = non banni, 1 = banni
   PRIMARY KEY (`id`)
 ) ;
 
@@ -122,6 +123,54 @@ CREATE TABLE IF NOT EXISTS `post_like` (
   `love` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ticket_post`
+--
+DROP TABLE IF EXISTS `ticket_post`;
+CREATE TABLE IF NOT EXISTS `ticket_post` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `post` int NOT NULL,
+  `publisher` int NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `treated` tinyint NOT NULL DEFAULT '0', -- 0 = non traité, 1 = traité
+  PRIMARY KEY (`id`)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ticket_post_comment`
+--
+DROP TABLE IF EXISTS `ticket_post_comment`;
+CREATE TABLE IF NOT EXISTS `ticket_post_comment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `post`int NOT NULL, -- juste pour avoir une idée sur le post 
+  `post_comment` int NOT NULL,
+  `account` int NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `treated` tinyint NOT NULL DEFAULT '0', -- 0 = non traité, 1 = traité
+  PRIMARY KEY (`id`)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ticket_message`
+--
+DROP TABLE IF EXISTS `ticket_message`;
+CREATE TABLE IF NOT EXISTS `ticket_message` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `message` int NOT NULL,
+  `sender` int NOT NULL,
+  `receiver` int NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `treated` tinyint NOT NULL DEFAULT '0', -- 0 = non traité, 1 = traité
+  PRIMARY KEY (`id`)
+);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
