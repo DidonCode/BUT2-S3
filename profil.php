@@ -55,7 +55,7 @@
 <html>
 <head>
     <title>Profil</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/profil.css">
     <link rel="stylesheet" type="text/css" href="css/side-bar.css">
 </head>
@@ -135,6 +135,7 @@
            
                 if($postContentType == "image"){
                     echo '<img src="' . $postContent . '">';
+                    echo '<div class="affichagePostLike"></div>';
                 }
 
                 else{

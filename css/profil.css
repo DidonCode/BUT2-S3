@@ -147,6 +147,17 @@ li{
     max-width: 100%;
     height: auto;
     transition: transform 0.3s;
+    position: relative;
 }
 
+.affichagePostLike:hover{
+    color: blue;
+}
+.affichagePostLike{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: auto;
+    background-color: red;
+}
 
