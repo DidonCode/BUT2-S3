@@ -26,11 +26,13 @@ accountNavItem.addEventListener('click', () => {
     popup.style.display = 'none'; // Assurez-vous de masquer la pop-up lorsque vous changez de module
 });
 
-// Ajoutez des gestionnaires d'événements pour les sous-modules (ouverture de la pop-up)
-profileModule.addEventListener('click', () => {
-    popup.style.display = 'block';
-    popupTitle.textContent = 'Changer de Nom';
-    popupTextarea.value = ''; // Réinitialisez le contenu du textarea si nécessaire
+// Ajoutez un gestionnaire d'événements pour les sous-modules (ouverture de la pop-up)
+profileModule.addEventListener('click', (event) => {
+    if (event.target.tagName === 'H2') {
+        popup.style.display = 'block';
+        popupTitle.textContent = event.target.textContent; // Utilisez le texte de l'élément cliqué comme titre
+        popupTextarea.value = ''; // Réinitialisez le contenu du textarea si nécessaire
+    }
 });
 
 accountModule.addEventListener('click', () => {
