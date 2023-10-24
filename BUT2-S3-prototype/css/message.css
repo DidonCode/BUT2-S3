@@ -1,0 +1,13 @@
+@import 'colors.css';
+
+.main-container{
+	display: flex;
+	justify-content: space-between;
+	min-height: 100%;
+	flex-direction: row;
+}
+
+.container{
+	margin: 0 auto;
+	user-select: none;
+}

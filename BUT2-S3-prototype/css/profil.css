@@ -1,0 +1,163 @@
+@import "colors.css";
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+}
+
+li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+.username{
+    margin: 0;
+}
+
+
+#followerCount{
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    min-height: 100%;
+    height: auto;
+}
+
+.container {
+    padding: 0 5%;
+    margin: 0 auto;
+}
+
+/*Settings*/
+#settings{
+    margin-top: 100px;
+    padding-right: 300px;
+}
+.context-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu li {
+    padding: 7px;
+}
+
+.context-menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.context-menu a:hover {
+    background-color: #f2f2f2;
+}
+
+/*BIO*/
+
+
+#bio{
+    display : grid;
+    grid-template-columns: 1fr 2fr;
+    height: 13em;
+    border-bottom: 0.5px solid #DBDBDB;
+    padding-left: 40px;
+}
+
+.photo-profil{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+}
+
+.photo-profil>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profil-info{
+    padding-right: 15%;
+}
+
+.profil-info .username{
+    font-size: 1.7em;
+    color: #545454;
+}
+
+.follow-button{
+    background-color: #0095F6;
+    color: #fff;
+    font-size: 1.1em;
+    width: 6em;
+    height: 2em;
+    border: unset;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.text-bio{
+    padding : 15%;
+}
+
+.informations{
+    display: flex;
+    grid-column-start: auto;
+    grid-gap: 75px;
+    font-size: 18px;
+}
+
+.certif{
+    display: inline-flex;
+    margin: 21px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+
+.AffichagePost{
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.AffichagePost img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.affichagePostLike:hover{
+    color: blue;
+}
+.affichagePostLike{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: auto;
+    background-color: red;
+}
+
