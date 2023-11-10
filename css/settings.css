@@ -1,64 +1,55 @@
 body {
-    display: flex;
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+    display: flex;
 }
 
 .sidebar {
-    width: 200px;
-    background-color: #333;
-    color: white;
+    width: 250px;
+    background: #333;
+    color: #fff;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .sidebar ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
-.sidebar ul li {
-    cursor: pointer;
+.sidebar li {
     margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
 }
 
-.content {
+.sidebar li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: #ff0000;
+}
+
+.settings-container {
     flex: 1;
     padding: 20px;
 }
 
-.module {
+.setting-item {
+    margin-bottom: 20px;
     display: none;
 }
 
-.module h2 {
-    margin-top: 0;
-}
-
-.popup {
+.sub-menu {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
 }
 
-.popup-content {
-    background-color: #fff;
-    width: 80%;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    position: relative;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 24px;
+.apply-btn {
+    display: none;
+    margin-top: 20px;
 }

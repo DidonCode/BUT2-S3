@@ -1,55 +1,38 @@
-// Sélectionnez les éléments de la barre de navigation
-const profileNavItem = document.getElementById('profile');
-const accountNavItem = document.getElementById('account');
+document.addEventListener('DOMContentLoaded', function () {
+    var sidebarItems = document.querySelectorAll('.sidebar li');
+    var settingItems = document.querySelectorAll('.setting-item');
+    var applyBtn = document.querySelector('.apply-btn');
 
-// Sélectionnez les modules
-const profileModule = document.getElementById('profileContent');
-const accountModule = document.getElementById('accountContent');
+    sidebarItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+            var category = item.id;
 
-// Sélectionnez la pop-up
-const popup = document.getElementById('popup');
-const closePopupButton = document.getElementById('close-popup');
-const popupTitle = document.getElementById('popup-title');
-const popupTextarea = document.getElementById('popup-textarea');
-const popupSaveButton = document.getElementById('popup-save-button');
+            settingItems.forEach(function (setting) {
+                if (setting.classList.contains(category)) {
+                    setting.style.display = 'block';
+                } else {
+                    setting.style.display = 'none';
+                }
+            });
 
-// Ajoutez des gestionnaires d'événements pour les éléments de navigation
-profileNavItem.addEventListener('click', () => {
-    profileModule.style.display = 'block';
-    accountModule.style.display = 'none';
-    popup.style.display = 'none'; // Assurez-vous de masquer la pop-up lorsque vous changez de module
+            applyBtn.style.display = 'block';
+        });
+    });
+
+    settingItems.forEach(function (setting) {
+        setting.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        var subMenu = setting.querySelector('.sub-menu');
+        if (subMenu) {
+            setting.addEventListener('click', function () {
+                subMenu.style.display = (subMenu.style.display === 'none' || subMenu.style.display === '') ? 'block' : 'none';
+            });
+        }
+    });
 });
 
-accountNavItem.addEventListener('click', () => {
-    profileModule.style.display = 'none';
-    accountModule.style.display = 'block';
-    popup.style.display = 'none'; // Assurez-vous de masquer la pop-up lorsque vous changez de module
-});
-
-// Ajoutez un gestionnaire d'événements pour les sous-modules (ouverture de la pop-up)
-profileModule.addEventListener('click', (event) => {
-    if (event.target.tagName === 'H2') {
-        popup.style.display = 'block';
-        popupTitle.textContent = event.target.textContent; // Utilisez le texte de l'élément cliqué comme titre
-        popupTextarea.value = ''; // Réinitialisez le contenu du textarea si nécessaire
-    }
-});
-
-accountModule.addEventListener('click', () => {
-    popup.style.display = 'block';
-    popupTitle.textContent = 'Compte Bloqué';
-    popupTextarea.value = ''; // Réinitialisez le contenu du textarea si nécessaire
-});
-
-// Ajoutez un gestionnaire d'événements pour fermer la pop-up
-closePopupButton.addEventListener('click', () => {
-    popup.style.display = 'none';
-});
-
-// Ajoutez un gestionnaire d'événements pour le bouton "Sauvegarder"
-popupSaveButton.addEventListener('click', () => {
-    const content = popupTextarea.value;
-    // Vous pouvez utiliser "content" comme vous le souhaitez, par exemple, pour enregistrer les données.
-    // Pour l'instant, nous n'implémentons que la fermeture de la pop-up.
-    popup.style.display = 'none';
-});
+function applyChanges() {
+    alert('Modifications appliquées avec succès!');
+}
