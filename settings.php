@@ -14,6 +14,7 @@
         <li id="privacy">Confidentialité</li>
         <li id="security">Sécurité</li>
     </ul>
+    <a href="profil.php"><p id="return">Retourner au profil</p></a>
 </div>
 
 <div class="settings-container">
