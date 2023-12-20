@@ -1,1 +1,237 @@
 pour les input : https://codepen.io/lucasyem/pen/ZEEYKdj
+
+A essayer avant de push
+
+Settings 
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" type="text/css" href="css/side-bar.css">
+</head>
+<body>
+    <div class="main-container">
+        <?php 
+            include_once("php/side-bar.php");
+        ?>
+        <div class="container">
+            <div class="general">
+                <h1>GÉNÉRAL</h1>
+
+               <!-- Nouvel input animé pour changer de pseudo -->
+    <div class="form__group change-input">
+        <input type="input" class="form__field" placeholder="" name="newPseudo" id="newPseudo" required />
+        <label for="newPseudo" class="form__label">Nouveau pseudo</label>
+    </div>
+
+    <!-- Nouvel input animé pour changer de nom -->
+    <div class="form__group change-input">
+        <input type="input" class="form__field" placeholder="" name="newName" id="newName" required />
+        <label for="newName" class="form__label">Nouveau nom</label>
+    </div>
+
+    <!-- Nouvel input animé pour changer la bio -->
+    <div class="form__group change-input">
+        <textarea class="form__field" placeholder="" name="newBio" id="newBio" required></textarea>
+        <label for="newBio" class="form__label">Nouvelle bio</label>
+    </div>
+
+    <!-- Nouvel input animé pour changer la photo de profil -->
+    <div class="form__group change-input">
+        <input type="file" class="form__field" accept="image/*" name="newProfilePicture" id="newProfilePicture" required />
+        <label for="newProfilePicture" class="form__label">Changer la photo de profil</label>
+    </div>
+            <div class="securite">
+                <h1>SÉCURITÉ</h1>
+
+                <!-- Nouvel input animé pour changer de mot de passe -->
+                <div class="form__group change-input">
+                    <input type="password" class="form__field" placeholder="" name="newPassword" id="newPassword" required />
+                    <label for="newPassword" class="form__label">Nouveau mot de passe</label>
+                </div>
+            </div>
+            <div class="confidentialite">
+                <h1>CONFIDENTIALITÉ</h1>
+
+                <!-- Section pour les comptes bloqués -->
+                <div id="blockedAccounts">
+                    <h3>Comptes bloqués</h3>
+                    <p>Aucun compte bloqué pour le moment.</p>
+                </div>
+              <button class="apply-btn" onclick="applyChanges()">Appliquer les modifications</button>
+            </div>
+      </div>
+    </div>
+    <script src="js/settings.js"></script>
+    <script src="js/side-bar.js"></script>
+</body>
+</html>
+
+
+css
+
+@import "colors.css";
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100%;
+}
+html{
+    height: 100%;
+}
+
+h3{
+    cursor: pointer;
+    font-size: 20px;
+}
+
+h2{
+    font-size: 25px;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    font-size: 20px;
+}
+
+
+.container > div > div {
+    padding-left: 22px;
+}
+
+#return{
+    color: #fff;
+    position: fixed;
+    bottom: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    min-height: 100%;
+    height: auto;   
+}
+
+.container {
+    padding: 0 5%;
+    margin: 15% 100%;
+
+}
+
+.apply-btn {
+    margin-top: 20px;
+}
+
+.apply-btn, input[type="submit"] {
+    padding: 12px;
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s;
+    color: white;
+    border-radius: 10px;
+    background-size: 200%;
+    border: 1px solid #fff;
+    background-image: linear-gradient(
+        to right,
+        var(--yellow-logo),
+        var(--orange-logo),
+        var(--purple-logo)
+    );
+}
+
+button:hover, input[type="submit"]:hover {
+    background-position: right;
+}
+
+button:active, input[type="submit"]:active {
+	transform: scale(0.95);
+}
+
+button:focus, input[type="submit"]:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border: none;
+}
+
+input{
+    border: 1px solid rgb(228, 228, 228);
+}
+
+textarea{
+    border-radius: 10px;
+    border: 1px solid rgb(228, 228, 228);
+}
+
+#photoSubMenu input{
+    border-radius: 0px;
+    border: none;
+}
+
+/*RESPONSIVE*/
+
+/* Ajouter les styles pour l'input animé */
+        .form__group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form__field {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: none;
+            border-bottom: 1px solid #ccc; /* Ajouter une bordure seulement en bas */
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            background: transparent; /* Ajouter un fond transparent */
+        }
+
+        .form__field:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .form__label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 0 5px;
+            font-size: 16px;
+            color: #777;
+            pointer-events: none;
+            transition: top 0.3s, font-size 0.3s;
+        }
+
+        .form__field:focus + .form__label,
+        .form__field:not(:placeholder-shown) + .form__label {
+            top: -15px;
+            font-size: 12px;
+        }
+
+        /* Ajouter des styles pour le texte du label lorsqu'il est en haut */
+        .form__field:not(:placeholder-shown) + .form__label {
+            color: #3498db; /* Couleur du texte lorsque le label est en haut */
+        }
+
+        /* Styles existants pour le formulaire */
