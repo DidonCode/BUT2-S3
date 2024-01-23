@@ -1,0 +1,293 @@
+@import "colors.css";
+  
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.main-container{
+  display: flex;
+  justify-content: space-between;
+  min-height: 100%;
+  flex-direction: row;
+}
+
+.container{
+  margin: 0 auto;
+  user-select: none;
+  width: 100%;
+}
+
+.settings-panel {
+  width: 80%;
+  max-width: 900px;
+  min-width: 600px;
+  margin: 30px auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--popup-color);
+  box-shadow: 10px 10px 14px 0px var(--box-shadow);
+}
+
+.settings-header {
+  background-color: var(--border-color);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.settings-header h2{
+  color: var(--text-color);
+}
+
+.settings-content {
+  padding: 20px;
+}
+
+.settings-profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settings-profile-image{
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.settings-profile-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.settings-profile-image span{
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.settings-info-section h3{
+  padding-bottom: 20px;
+}
+
+.settings-apply-btn {
+  margin-top: 20px;
+}
+
+.settings-apply-btn {
+  padding: 12px;
+  width: auto;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.1s;
+  color: white;
+  border-radius: 1em;
+  background-size: 200%;
+  border: none;
+  font-weight: 600;
+  background-color: var(--positive-action-color);
+  user-select: none;
+}
+
+.settings-apply-btn:hover {
+  background-color: var(--positive-action-hover-color);
+}
+
+button:hover, input[type="submit"]:hover {
+  background-position: right;
+}
+
+button:active, input[type="submit"]:active {
+  transform: scale(0.95);
+}
+
+button:focus, input[type="submit"]:focus {
+  outline: none;
+}
+
+button.ghost {
+  background-color: transparent;
+  border: none;
+}
+
+input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.settings-info-section {
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.settings-form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.settings-form-field {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    background: transparent;
+    color: var(--text-color);
+}
+
+.settings-form-group textarea {
+    height: 200px;
+    resize: none;
+}
+
+.settings-form-field:focus {
+    outline: none;
+    border-color: var(--border-color);
+}
+
+.settings-form-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0 5px;
+    font-size: 16px;
+    color: #777;
+    pointer-events: none;
+    transition: top 0.3s, font-size 0.3s;
+}
+
+.settings-form-field:focus + .settings-form-label,
+.settings-form-field:not(:placeholder-shown) + .settings-form-label {
+    top: -15px;
+    font-size: 12px;
+}
+.settings-form-field:not(:placeholder-shown) + .settings-form-label {
+    color: rgb(0, 0, 0); 
+    color: var(--text-color);
+}
+
+.setting-deleting-account{
+  color: var(--text-color);
+  padding: 12px;
+  width: auto;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.1s;
+  color: white;
+  border-radius: 1em;
+  background-size: 200%;
+  border: none;
+  font-weight: 600;
+  background-color: var(--refuse);
+  user-select: none;
+}
+
+.setting-account-block{
+  display: table-row;
+  width: 100%;
+  height: 40px;
+  margin: 10px 0px;
+}
+
+.setting-account-block-information{
+  display: table-cell;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.setting-account-block-action{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.setting-account-block-link{
+  display: table-row;
+  text-decoration: none;
+  color: var(--text-color);
+  vertical-align: middle;
+}
+
+.setting-account-block-profile{
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.setting-account-block-name{
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0px;
+  width: 100%;
+}
+
+.setting-account-block input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+}
+
+.setting-password-checker-valid{
+  color: var(--valid);
+}
+
+.setting-password-checker-refuse{
+  color: var(--refuse);
+}
+
+.settings-visibilityAccount, .settings-deleteAccount{
+  margin-bottom: 50px;
+}
+
+.settings-visibility{
+  width: 100%;
+  display: table-row;
+}
+
+.settings-visibility p{
+  display: table-cell;
+  width: 215px;
+}
+
+.settings-selectbox{
+  display: table-cell;
+  margin: 5px 0px;
+  padding: 8px;
+  border: none;
+  font-size: 15px;
+  width: 225px;
+  background-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.settings-account-block{
+  width: 15px;
+  height: 15px;
+  fill: var(--text-color);
+  cursor: pointer;
+  vertical-align: middle;
+}

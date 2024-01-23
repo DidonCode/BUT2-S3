@@ -1,0 +1,66 @@
+.notification-result{
+    overflow-y: auto;
+    max-height: 86vh;
+	padding-bottom: 10px;
+}
+
+.notification-account{
+    padding: 10px;
+}
+
+.notification-account:hover{
+    background-color: var(--hover-overlay);
+    border-radius: 0.5em;
+}
+
+.notification-error{
+    text-align: center;
+}
+
+.notification-information{
+	display: inline-flex;
+	padding-bottom: 10px;
+	vertical-align: middle;
+}
+
+.notification-information img{
+	width: 50px;
+	vertical-align: middle;
+	height: 50px;
+	margin-right: 10px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-sizing: border-box;
+	aspect-ratio: 1/1;
+}
+
+.notification-information p{
+	vertical-align: middle;
+	margin: 0;
+}
+
+.notification-accept, .notification-refuse{
+	padding: 10px 15px 10px 15px;
+	border-radius: 1em;
+	font-weight: 600;
+	cursor: pointer;
+	color: white;
+	border: none;
+}
+
+.notification-accept{
+	background-color: var(--positive-action-color); 
+}
+
+.notification-accept:hover{
+	background-color: var(--positive-action-hover-color); 
+}
+
+.notification-refuse{
+	background-color: var(--negative-action-color);
+	color: var(--text-color);
+}
+
+.notification-refuse:hover{
+	background-color: var(--negative-action-hover-color); 
+}

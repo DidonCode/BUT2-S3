@@ -1,13 +1,356 @@
 @import 'colors.css';
 
+body{
+	background-color: var(--background-color);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
 .main-container{
 	display: flex;
-	justify-content: space-between;
 	min-height: 100%;
 	flex-direction: row;
 }
 
 .container{
-	margin: 0 auto;
 	user-select: none;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	color: var(--text-color);
+}
+
+.contact-bar{
+	width: 35%;
+	max-width: 400px;
+	min-width: 200px;
+	border: 2px solid var(--border-color);
+	border-bottom: none;
+	border-top: none;
+	border-left: none;
+	background-color: var(--background-color);
+	float: left;
+	position: relative;
+}
+
+.contact-bar-container{
+	position: absolute;
+	overflow-y: auto;
+	width: 100%;
+	height: 93.2%;
+}
+
+.contact-bar-header{
+	display: table-row;
+	height: 60px;
+}
+
+.contact-bar-header h3{
+	vertical-align: middle;
+	display: table-cell;
+	width: 100%;
+	padding-left: 25px;
+}
+
+.contact-bar-header svg{
+	vertical-align: middle;
+	display: table-cell;
+	margin-right: 20px;
+	height: 60px;
+	cursor: pointer;
+}
+
+.message-container{
+	width: 100%;
+	position: relative;
+}
+
+.contact:hover{
+	background-color: var(--hover-overlay);
+}
+
+.contact-header{
+	width: calc(100% - 40px);
+    padding: 10px 20px;
+	text-decoration: none;
+	color: var(--text-color);
+	display: inline-flex;
+	vertical-align: middle;
+}
+
+.contact-header-information{
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	width: calc(100% - 40px);
+}
+
+.contact-name{
+	margin: 0px;
+	font-weight: 600;
+	font-size: 1.2em;
+}
+
+.contact-header-profile{
+	display: table-cell;
+	vertical-align: middle;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	object-fit: cover;
+	box-sizing: border-box;
+	aspect-ratio: 1/1;
+}
+
+.contact-last-message{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: calc(100% - 50px);
+	margin: 0px;
+	font-size: 0.8em;
+}
+
+.view-notification{
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	top: calc(50% - 4px);
+	right: 20px;
+	border-radius: 50%;
+	background-color: var(--positive-action-color);
+}
+
+.message-header{
+	min-width: calc(100% - 40px);
+	padding: 15px 20px;
+	display: table;
+	background-color: var(--background-color);
+	border: 2px solid var(--border-color);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.message-header-container{
+	display: table-row;
+}
+
+.message-header .contact-action-container{
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.message-header .contact-action{
+	float: right;
+}
+
+.message-header .contact-action svg{
+	padding: 0px 5px;
+}
+
+.message-header .contact-header-container{
+	vertical-align: middle;
+	display: table-cell;
+	float: left;
+}
+
+.message-header .contact-header .contact-name{
+	margin: auto;
+}
+
+.message-header .contact-header{
+	width: auto;
+	padding: 0px;
+}
+
+.message-content{
+	height: 83.5%;
+	position: absolute;
+	width: calc(100% - 20px);
+	padding: 10px;
+	overflow-y: auto;
+}
+
+.message-action{
+	position: absolute;
+	bottom: 0px;
+	width: calc(100% - 34px);
+	margin: 10px;
+}
+
+.message-input{
+	padding: 5px;
+	color: var(--text-color);
+	border: 2px solid var(--border-color);
+	background-color: var(--input-background-color);
+	border-radius: 1em;
+	width: 100%;
+	height: 30px;
+}
+
+.message-sender{
+	float: left;
+	clear: both;
+	user-select: text;
+	max-width: 45%;
+	margin: 10px;
+}
+
+.message-receiver{
+	margin: 10px;
+	clear: both;
+	user-select: text;
+	max-width: 45%;
+	float: right;
+}
+
+.message-sender p{
+	margin: 0;
+	overflow-wrap: break-word;
+	padding: 7px 12px;
+	border-radius: 1em;
+	background-color: var(--message-color);
+}
+
+.message-receiver p{
+	margin: 0;
+	padding: 7px 12px;
+	border-radius: 1em;
+	overflow-wrap: break-word;
+	color: white;
+	background-color: rgb(55, 151, 240);
+}
+
+.message-date p{
+	color: rgb(168, 168, 168);
+	font-size: 0.8em;
+	text-align: center;
+	clear: both;
+	margin: 0px;
+	padding: 20px;
+}
+
+.message-view{
+	float: right;
+	clear: both;
+	margin-top: -5px;
+	margin-right: 10px;
+	padding-right: 12px;
+}
+
+.message-view p{
+	color: rgb(168, 168, 168);
+	margin: 0;
+	font-size: 0.8em;
+}
+
+.message-popup-contact-background{
+	background-color: rgba(38, 38, 38, 0.4);
+	display: none;
+	position: fixed;
+	z-index: 3;
+	cursor: default;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+.message-popup-contact{
+	background-color: var(--popup-color);
+	color: var(--text-color);
+    max-width: 548px;
+    margin: 15% auto;
+    border: 2px solid var(--border-color);
+    border-radius: 1em;
+    height: 60%;
+}
+
+.message-popup-header{
+	align-content: center;
+	font-weight: 700;
+	font-size: 16px;
+	display: table-row;
+	padding: 10px;
+}
+
+.message-popup-header h3{
+	vertical-align: middle;
+	display: table-cell;
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+}
+
+.message-popup-header svg{
+	float: right;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 24px 20px;
+	cursor: pointer;
+}
+
+.message-popup-contact input{
+	border: 1px solid var(--border-color);
+	border-left: none;
+	border-right: none;
+	background-color: transparent;
+	color: var(--text-color);
+	padding: 4px;
+	margin-bottom: 2px;
+	height: 30px;
+	font-size: 14px;
+	width: calc(100% - 8px);
+}
+
+.message-popup-contact-list{
+	height: calc(100% - 175px);
+	overflow-y: auto;
+}
+
+.search-account:hover{
+	border-radius: 0;
+}
+
+.message-popup-contact-create{
+	width: calc(100% - 20px);
+	background-color: var(--positive-action-color);
+	border-radius: 1em;
+	color: var(--text-color);
+	margin: 15px auto;
+	height: 44px;
+	font-size: 0.875rem;
+	font-weight: 600;
+	margin-left: 10px;
+	cursor: pointer;
+	border: none;
+}
+
+.message-popup-contact input:focus{
+	outline: none;
+}
+
+.side-nav-bar{
+	min-width: 55px;
+}
+
+.side-nav-fixed{
+	min-width: 55px;
+}
+
+.side-nav-button{
+	width: 45px;
+}
+
+.side-nav-button span{
+	display: none;
+}
+
+.logo-title{
+	display: none;
+}
+
+.icon-title{
+	display: block;
 }

@@ -1,15 +1,13 @@
 <?php
-	$address = "127.0.0.1";
+	$address = "localhost";
 	$username = "root";
-	$password = "";
-	$database = "insta_hess";
+	$password = "Mypas$4Srv+";
+	$database = "insta_hess_beta";
 
 	try {
 		$pdo = new PDO("mysql:host=".$address.";dbname=".$database, $username, $password);
 		return $pdo;
 	}catch(Exception $e) {
-		//die('Erreur : '.$e->getMessage());
-		echo $e->getMessage();
-		//header("Location: error.php");
+		throw new Exception("Database connection failed.");
 	}
 ?>

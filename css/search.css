@@ -1,0 +1,48 @@
+.search-input{
+    border-radius: 1em;
+    background-color: var(--input-background-color);
+    width: calc(100% - 20px);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+}
+
+.search-result{
+    overflow-y: auto;
+    height: 81%;
+}
+
+.search-account:hover{
+    background-color: var(--hover-overlay);
+    border-radius: 0.5em;
+}
+
+.search-account a{
+    display: inline-flex;
+    width: 100%;
+    padding: 12px 0px;
+    text-decoration: none;
+}
+
+.search-account img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0px 10px;
+    object-fit: cover;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+}
+
+.search-account span{
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    text-align: left;
+    color: var(--text-color);
+    margin: auto 0;
+}
+
+.search-error{
+    text-align: center;
+}

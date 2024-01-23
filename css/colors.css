@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
 :root{
     /*Logo colors*/
     --yellow-logo : #ffdf2b;
@@ -8,9 +6,82 @@
 
     /*Background*/
     --background-color : #f6f5f7;
+    --popup-color : #ffffff;
 
     /*Profil*/
     --separator : #DBDBDB;
     --username : #545454;
-    --button: #0095F6;
+    --button : #0095F6;
+
+    /* Side Bar */
+    --border-color : rgb(229, 229, 229);
+    --box-shadow: #c7c7c7bf; 
+    --hover-overlay : #0000000d;
+    --text-color : #000000;
+    --notification : #ff0000;
+
+    --input-background-color : #eee;
+    --message-color : #efefef;
+
+    --positive-action-color : #1877F2;
+    --positive-action-hover-color : #0867E2;
+
+    --negative-action-color : #EFEFEF;
+    --negative-action-hover-color : #DFDFDF;
+
+    --valid : #0FED16;
+    --refuse : #BD0D0D;
+}
+
+.dark-mode{
+    /*Logo colors*/
+    --yellow-logo : #ffdf2b;
+    --orange-logo : #e47b02;
+    --purple-logo : #d400ff;
+
+    /*Background*/
+    --background-color : #131313;
+    --popup-color : #262626;
+
+    /*Profil*/
+    --separator : #DBDBDB;
+    --username : #545454;
+    --button : #0095F6;
+
+    /* Side Bar */
+    --border-color : rgb(59, 59, 59);
+    --box-shadow : #0f0f0fbf;
+    --hover-overlay : #ffffff1a;
+    --text-color : #ffffff;
+    --notification : #ff0000;
+
+    --input-background-color : #373535;
+    --message-color : #262626;
+
+    --positive-action-color : #1877F2;
+    --positive-action-hover-color : #0867E2;
+
+    --negative-action-color : #363636;
+    --negative-action-hover-color : #262626;
+
+    --valid : #0FED16;
+    --refuse : #BD0D0D;
+}
+
+img, a{
+    -webkit-user-drag: none;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--popup-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: 1em;
 }

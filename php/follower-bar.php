@@ -1,76 +1,79 @@
-<style>
-	.follower-bar{
-		width: 200px;
-		height: 400px;
-		padding: 10px;
-		border: 2px solid grey;
-		border-top: none;
-		border-right: none;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-	}
+	<?php
+	require_once("database.php");
+	include_once("session.php");
 
-	.follower-header, .follower-suggestion-header{
-		display: table-row;
-		vertical-align: middle;
-	}
+	$LIMIT = 5;
 
-	.follower-suggestion-header{
-		margin-top: 20px;
-	}
+	$requete = $pdo->prepare("SELECT followed FROM follow WHERE follower = ? LIMIT ".$LIMIT);
+	$requete->execute(array($_SESSION['id']));
+	$followerData = $requete->fetchAll();
 
-	.follower-header-profil{
-		display: table-cell;
-		vertical-align: middle;
-		border-radius: 50%;
-		width: 40px;
-		height: 40px;
-		margin-right: 10px;
+	for($i = 0; $i < count($followerData); $i++){
+		$requete = $pdo->prepare("SELECT id, pseudo, fullName, profile FROM account WHERE id = (SELECT followed FROM follow WHERE follower = ? AND follow = 1 LIMIT 1) AND id != ?");
+		$requete->execute(array($followerData[$i]['followed'], $_SESSION['id']));
+		$followedData = $requete->fetchAll();
 	}
-
-	.follower-header-information{
-		display: table-cell;
-		vertical-align: middle;
-	}
-
-	.follower-publisher{
-		margin: 0px;
-		font-weight: 600;
-	}
-
-	.follower-fullName{
-		margin: 0px;
-		font-size: 0.8em;
-	}
-</style>
-
-<?php
-	include_once('session.php');
 ?>
 
 <div class="follower-bar">
-	<div class="follower-header">
-		<?php echo '<img src="'.$_SESSION['profil'].'" class="follower-header-profil">' ?>
+	<?php echo '<a href="profile.php?profile='.$_SESSION['pseudo'].'" class="follower-header">' ?>
+		<?php echo '<img src="'.$_SESSION['profile'].'" class="follower-header-profile">' ?>
 		<div class="follower-header-information">
 			<p class="follower-publisher"><?php echo $_SESSION['pseudo']; ?></p>
 			<p class="follower-fullName"><?php echo $_SESSION['fullName']; ?></p>
 		</div>
-	</div>
+	</a>
 
-	<h4 style="color: rgb(115, 115, 115); font-size: 14px;">Suggestions pour vous</h4>
+	<?php
+		echo '<p class="follower-suggestion">Suggestions pour vous</p>';
+		echo '<div class="follower-content">';
+		
+		if(isset($followedData, $followerData) && count($followedData) > 0 && count($followerData) > 0){
+			//$max = $LIMIT;
+			//if(count($followedData) < $LIMIT){ $max = count($followedData); }
 
-	<div class="follower-content">
-		<?php
-			for($i = 0; $i < 5; $i++){
+			for($i = 0; $i < count($followedData); $i++){
 				echo '
-				<div class="follower-suggestion-header">
-					<img src="" class="follower-header-profil">
+				<a href="profile.php?profile='.$followedData[$i]['pseudo'].'" class="follower-suggestion-header">
+					<img src="'.$followedData[$i]['profile'].'" class="follower-header-profile">
 					<div class="follower-header-information">
-						<p class="follower-publisher">rugvyenfrance</p>
-						<p class="follower-fullName">Rugby France</p>
+						<p class="follower-publisher">'.$followedData[$i]['pseudo'].'</p>
+						<p class="follower-fullName">'.$followedData[$i]['fullName'].'</p>
 					</div>
-				</div>
+				</a>
 				';
 			}
-		?>
+		}else{
+			$requete = $pdo->prepare("SELECT followed, COUNT(*) FROM follow WHERE follow = 1 GROUP BY followed ORDER BY COUNT(*) DESC LIMIT ".$LIMIT);
+			$requete->execute();
+
+			$popularFollowedData = $requete->fetchAll();
+
+			if(count($popularFollowedData) > 0){
+
+				for($i = 0; $i < count($popularFollowedData); $i++){
+
+					$requete = $pdo->prepare("SELECT id, pseudo, fullName, profile FROM account WHERE id = ? AND id != ?");
+					$requete->execute(array($popularFollowedData[$i]['followed'], $_SESSION['id']));
+
+					$popularAccountData = $requete->fetchAll();
+
+					if(count($popularAccountData) > 0){
+						echo '
+						<a href="profile.php?profile='.$popularAccountData[0]['pseudo'].'" class="follower-suggestion-header">
+							<img src="'.$popularAccountData[0]['profile'].'" class="follower-header-profile">
+							<div class="follower-header-information">
+								<p class="follower-publisher">'.$popularAccountData[0]['pseudo'].'</p>
+								<p class="follower-fullName">'.$popularAccountData[0]['fullName'].'</p>
+							</div>
+						</a>
+						';
+					}
+				}
+			}else{
+				echo '<p class="follower-error">Aucune suggestion.</p>';
+			}
+		}
+	?>
 	</div>
 </div>

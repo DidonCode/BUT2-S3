@@ -1,0 +1,47 @@
+.popup-background{
+	background-color: rgba(38, 38, 38, 0.4);
+	position: fixed;
+	transition: 0.5s;
+	z-index: 4;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.popup{
+	display: flex;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.popup-content{
+	margin: auto auto;
+	text-align: center;
+	padding: 20px;
+	background-color: var(--popup-color);
+	border: 1px solid var(--border-color);
+	border-top: none;
+	border-radius: 0px 0px 1em 1em; 
+	color: var(--text-color);
+}
+
+.popup-content svg{
+	fill: green;
+	width: 40%;
+}
+
+.popup-button-action{
+	padding: 12px 40px;
+	margin-top: 10px;
+	width: auto;
+	text-align: center;
+	cursor: pointer;
+	transition: 0.1s;
+	color: white;
+	border-radius: 1em;
+	background-size: 200%;
+	border: none;
+	font-weight: 600;
+	background-color: var(--positive-action-color);
+	user-select: none;
+}
